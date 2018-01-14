@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Intranet.Fittme.MOD;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,6 @@ namespace Intranet.Fittme.BLL.Interfaces
 {
     public interface IAutenticacaoBLL
     {
+        Task<AutenticacaoMOD> Teste();
     }
 }

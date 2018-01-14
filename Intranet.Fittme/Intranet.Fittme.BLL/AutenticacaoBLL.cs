@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Intranet.Fittme.MOD;
 
 namespace Intranet.Fittme.BLL
 {
@@ -14,6 +15,11 @@ namespace Intranet.Fittme.BLL
         public AutenticacaoBLL(IAutenticacaoDAL autenticacaoDAL)
         {
             _autenticacaoDAL = autenticacaoDAL;
+        }
+
+        public async Task<AutenticacaoMOD> Teste()
+        {
+            return await _autenticacaoDAL.Teste();
         }
     }
 }

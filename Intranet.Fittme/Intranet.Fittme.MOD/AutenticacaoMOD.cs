@@ -8,5 +8,7 @@ namespace Intranet.Fittme.MOD
 {
     public class AutenticacaoMOD
     {
+        public string Usuario { get; set; }
+        public string Senha { get; set; }
     }
 }
