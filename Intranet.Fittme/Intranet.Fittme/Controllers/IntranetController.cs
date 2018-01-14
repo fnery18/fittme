@@ -15,9 +15,60 @@ namespace Intranet.Fittme.Controllers
             return View();
         }
 
-        public ActionResult Cadastrar()
+        #region Produtos
+        public ActionResult Produto()
         {
             return View("Produtos/Cadastrar");
         }
+        public ActionResult ListarProdutos()
+        {
+            return View("Produtos/Listar");
+        }
+        #endregion
+
+        #region Clientes
+        public ActionResult Cliente()
+        {
+            return View("Clientes/Cadastrar");
+        }
+        public ActionResult ListarClientes()
+        {
+            return View("Clientes/Listar");
+        }
+        #endregion
+
+        #region Vendas
+        public ActionResult Venda()
+        {
+            return View("Vendas/Cadastrar");
+        }
+        public ActionResult ListarVendas()
+        {
+            return View("Vendas/Listar");
+        }
+        #endregion
+
+        #region Estoque
+        public ActionResult Estoque()
+        {
+            return View("Estoque/Cadastrar");
+        }
+        public ActionResult ListarEstoque()
+        {
+            return View("Estoque/Listar");
+        }
+        #endregion
+
+        #region Usuarios
+        public ActionResult Usuario()
+        {
+            return View("Usuario/Cadastrar");
+        }
+        public ActionResult ListarUsuarios()
+        {
+            return View("Usuario/Listar");
+        }
+        #endregion
+
     }
 }

@@ -169,6 +169,15 @@
     <Content Include="Views\Autenticacao\Index.cshtml" />
     <Content Include="Views\Intranet\Index.cshtml" />
     <Content Include="Views\Intranet\Produtos\Cadastrar.cshtml" />
+    <Content Include="Views\Intranet\Produtos\Listar.cshtml" />
+    <Content Include="Views\Intranet\Estoque\Cadastrar.cshtml" />
+    <Content Include="Views\Intranet\Estoque\Listar.cshtml" />
+    <Content Include="Views\Intranet\Clientes\Cadastrar.cshtml" />
+    <Content Include="Views\Intranet\Clientes\Listar.cshtml" />
+    <Content Include="Views\Intranet\Usuarios\Listar.cshtml" />
+    <Content Include="Views\Intranet\Usuarios\Cadastrar.cshtml" />
+    <Content Include="Views\Intranet\Vendas\Listar.cshtml" />
+    <Content Include="Views\Intranet\Vendas\Cadastrar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -14,16 +14,18 @@ namespace Intranet.Fittme
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                name: "ControllerOnly",
+                url: "Intranet",
+                defaults: new { controller = "Intranet", action = "Index" }
+            );
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Autenticacao", action = "Login", id = UrlParameter.Optional }
             );
 
-            routes.MapRoute(
-                name: "Intranet",
-                url: "{controller}/{action}/",
-                defaults: new { controller = "Intranet", action = "Index"}
-            );
+
         }
     }
 }
