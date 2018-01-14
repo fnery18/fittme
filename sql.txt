@@ -1,0 +1,7 @@
+Listar servidores locais - sqllocaldb i
+
+startar servidor pelo nome - sqllocaldb s $nome
+
+-server name da connection do SSMS - (localdb)\mssqllocaldb
+
+(precisa do microsoft sql server 2014 express localdb)
