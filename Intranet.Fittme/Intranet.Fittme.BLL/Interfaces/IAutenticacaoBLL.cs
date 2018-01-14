@@ -10,5 +10,6 @@ namespace Intranet.Fittme.BLL.Interfaces
     public interface IAutenticacaoBLL
     {
         Task<AutenticacaoMOD> Teste();
+        Task<bool> ValidaUsuario(AutenticacaoMOD usuario);
     }
 }

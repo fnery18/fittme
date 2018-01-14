@@ -9,8 +9,6 @@ namespace Intranet.Fittme.Models
 {
     public class AutenticacaoModel
     {
-        private AutenticacaoMOD autenticacao;
-
         public AutenticacaoModel(AutenticacaoMOD autenticacao)
         {
             Usuario = autenticacao.Usuario;
@@ -26,5 +24,6 @@ namespace Intranet.Fittme.Models
         public string Usuario { get; set; }
         [Required]
         public string Senha { get; set; }
+        public bool Administrador { get; set; }
     }
 }

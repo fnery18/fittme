@@ -10,5 +10,6 @@ namespace Intranet.Fittme.MOD
     {
         public string Usuario { get; set; }
         public string Senha { get; set; }
+        public bool Administrador { get; set; }
     }
 }

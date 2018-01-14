@@ -16,7 +16,13 @@ namespace Intranet.Fittme
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Autenticacao", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Autenticacao", action = "Login", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "Intranet",
+                url: "{controller}/{action}/",
+                defaults: new { controller = "Intranet", action = "Index"}
             );
         }
     }

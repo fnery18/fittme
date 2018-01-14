@@ -10,5 +10,6 @@ namespace Intranet.Fittme.DAL.Interfaces
     public interface IAutenticacaoDAL
     {
         Task<AutenticacaoMOD> Teste();
+        Task<AutenticacaoMOD> RetornaUsuario(AutenticacaoMOD usuario);
     }
 }

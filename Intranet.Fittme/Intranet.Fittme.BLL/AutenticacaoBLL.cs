@@ -21,5 +21,10 @@ namespace Intranet.Fittme.BLL
         {
             return await _autenticacaoDAL.Teste();
         }
+
+        public async Task<bool> ValidaUsuario(AutenticacaoMOD usuario)
+        {
+            return await _autenticacaoDAL.RetornaUsuario(usuario) != null;
+        }
     }
 }
