@@ -48,6 +48,8 @@
     <Compile Include="AutenticacaoDAL.cs" />
     <Compile Include="ConnectionFactory.cs" />
     <Compile Include="Interfaces\IAutenticacaoDAL.cs" />
+    <Compile Include="Interfaces\IIntranetDAL.cs" />
+    <Compile Include="IntranetDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

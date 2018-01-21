@@ -1,13 +1,51 @@
 ﻿
 @{
-    ViewBag.Title = "Cadastrar";
+    ViewBag.Title = "Cadastro de Fornecedor";
 }
 @section styles{
-    
+    <link href="~/Content/form.css" rel="stylesheet" />
 }
-<h2>Cadastrar</h2>
+<div class="all">
+
+
+    <h1>
+        Fornecedores
+        <small>Cadastro de fornecedores da FIIT.ME</small>
+    </h1>
+
+    <section class="contact-wrap">
+        <form action="" class="contact-form">
+            <div class="col-sm-6">
+                <div class="input-block">
+                    <label for=""><i class="glyphicon glyphicon-user"></i> Nome</label>
+                    <input type="text" id="txtNome" maxlength="100" class="form-control">
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="input-block">
+                    <label for=""><i class="glyphicon glyphicon-earphone"></i> Celular</label>
+                    <input type="text" id="txtCelular" maxlength="15" class="form-control">
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="input-block">
+
+                    <label for=""><i class="glyphicon glyphicon-envelope"></i> E-mail</label>
+
+                    <input type="text" maxlength="100" id="txtEmail" class="form-control">
+                </div>
+            </div>
+            <div class="col-sm-12" style="margin-bottom: 10px;">
+                <button class="square-button" id="btnCadastrar"><font>Cadastrar</font></button>
+            </div>
+
+        </form>
+    </section>
+</div>
 
 @section scripts{
-    
+    <script src="~/Scripts/form.js"></script>
+    <script src="~/Scripts/jquery.mask.js"></script>
+    <script src="~/Scripts/fornecedor.js"></script>
 }
 

@@ -1,7 +1,10 @@
-﻿using Intranet.Fittme.Models;
+﻿using Intranet.Fittme.BLL.Interfaces;
+using Intranet.Fittme.MOD;
+using Intranet.Fittme.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -9,6 +12,12 @@ namespace Intranet.Fittme.Controllers
 {
     public class IntranetController : Controller
     {
+
+        private IIntranetBLL _intranetBLL;
+        public IntranetController(IIntranetBLL intranetBLL)
+        {
+            _intranetBLL = intranetBLL;
+        }
         //[SessionCheck]
         public ActionResult Index()
         {
@@ -52,6 +61,42 @@ namespace Intranet.Fittme.Controllers
         public ActionResult Fornecedor()
         {
             return View("Fornecedores/Cadastrar");
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> CadastraFornecedor(FornecedorModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var fornecedor = new FornecedorMOD
+                {
+                    Nome = model.Nome,
+                    Celular = model.Celular,
+                    Email = model.Email
+                };
+
+                bool cadastrou = await _intranetBLL.CadastraFornecedor(fornecedor);
+
+                if (cadastrou)
+                {
+                    return Json(new
+                    {
+                        Sucesso = true
+                    });
+                }
+
+                return Json(new
+                {
+                    Sucesso = false,
+                    Mensagem = "Ops, ocorreu um erro ao cadastrar esse fornecedor"
+                });
+            }
+
+            return Json(new
+            {
+                Sucesso = false,
+                Mensagem = "Ops, campos não preenchidos corretamente"
+            });
         }
         public ActionResult ListarFornecedores()
         {

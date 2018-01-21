@@ -50,6 +50,8 @@ namespace Intranet.Fittme
             container.RegisterType<IAutenticacaoBLL, AutenticacaoBLL>();
             container.RegisterType<IAutenticacaoDAL, AutenticacaoDAL>();
 
+            container.RegisterType<IIntranetBLL, IntranetBLL>();
+            container.RegisterType<IIntranetDAL, IntranetDAL>();
 
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }

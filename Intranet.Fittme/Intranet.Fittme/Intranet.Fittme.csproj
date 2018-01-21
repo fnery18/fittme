@@ -113,6 +113,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\form.css" />
     <Content Include="Content\Images\bg-01.jpg" />
     <Content Include="Content\Images\logo.jpg" />
     <Content Include="Content\main.css" />
@@ -131,23 +132,26 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Scripts\alert.js" />
     <Content Include="Scripts\autenticacao.js" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\fornecedor.js" />
+    <Content Include="Scripts\jquery-bootstrap\bootstrap.js" />
+    <Content Include="Scripts\jquery-bootstrap\bootstrap.min.js" />
     <Content Include="fonts\poppins\Poppins-Regular.ttf" />
     <Content Include="fonts\poppins\Poppins-Medium.ttf" />
     <Content Include="fonts\poppins\iconic\fonts\Material-Design-Iconic-Font.woff2" />
     <Content Include="fonts\poppins\iconic\fonts\Material-Design-Iconic-Font.ttf" />
     <Content Include="fonts\poppins\iconic\fonts\Material-Design-Iconic-Font.woff" />
-    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <None Include="Scripts\jquery-3.2.1.intellisense.js" />
-    <Content Include="Scripts\jquery-3.2.1.js" />
-    <Content Include="Scripts\jquery-3.2.1.min.js" />
-    <Content Include="Scripts\jquery-3.2.1.slim.js" />
-    <Content Include="Scripts\jquery-3.2.1.slim.min.js" />
-    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <None Include="Scripts\jquery-bootstrap\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\form.js" />
+    <Content Include="Scripts\jquery-bootstrap\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-bootstrap\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery-bootstrap\jquery-1.10.2.min.map" />
+    <None Include="Scripts\jquery-bootstrap\jquery-3.2.1.intellisense.js" />
+    <Content Include="Scripts\jquery-bootstrap\jquery-3.2.1.js" />
+    <Content Include="Scripts\jquery-bootstrap\jquery-3.2.1.min.js" />
+    <Content Include="Scripts\jquery-bootstrap\jquery-3.2.1.slim.js" />
+    <Content Include="Scripts\jquery-bootstrap\jquery-3.2.1.slim.min.js" />
+    <Content Include="Scripts\jquery-bootstrap\modernizr-2.6.2.js" />
+    <Content Include="Scripts\jquery.mask.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -162,22 +166,23 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AutenticacaoModel.cs" />
+    <Compile Include="Models\FornecedorModel.cs" />
     <Compile Include="Models\SessionCheck.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
-    <Content Include="Scripts\jquery-3.2.1.slim.min.map" />
-    <Content Include="Scripts\jquery-3.2.1.min.map" />
+    <Content Include="Scripts\jquery-bootstrap\jquery-3.2.1.slim.min.map" />
+    <Content Include="Scripts\jquery-bootstrap\jquery-3.2.1.min.map" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Autenticacao\Index.cshtml" />
     <Content Include="Views\Intranet\Index.cshtml" />
     <Content Include="Views\Intranet\Produtos\Cadastrar.cshtml" />
     <Content Include="Views\Intranet\Produtos\Listar.cshtml" />
-    <Content Include="Views\Intranet\Estoque\Cadastrar.cshtml" />
-    <Content Include="Views\Intranet\Estoque\Listar.cshtml" />
+    <Content Include="Views\Intranet\Fornecedores\Cadastrar.cshtml" />
+    <Content Include="Views\Intranet\Fornecedores\Listar.cshtml" />
     <Content Include="Views\Intranet\Clientes\Cadastrar.cshtml" />
     <Content Include="Views\Intranet\Clientes\Listar.cshtml" />
     <Content Include="Views\Intranet\Usuarios\Listar.cshtml" />
