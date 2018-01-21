@@ -41,6 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AutenticacaoMOD.cs" />
+    <Compile Include="FornecedorMOD.cs" />
+    <Compile Include="ProdutoMOD.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

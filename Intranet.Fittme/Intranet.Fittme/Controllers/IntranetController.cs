@@ -48,14 +48,14 @@ namespace Intranet.Fittme.Controllers
         }
         #endregion
 
-        #region Estoque
-        public ActionResult Estoque()
+        #region Fornecedor
+        public ActionResult Fornecedor()
         {
-            return View("Estoque/Cadastrar");
+            return View("Fornecedores/Cadastrar");
         }
-        public ActionResult ListarEstoque()
+        public ActionResult ListarFornecedores()
         {
-            return View("Estoque/Listar");
+            return View("Fornecedores/Listar");
         }
         #endregion
 
