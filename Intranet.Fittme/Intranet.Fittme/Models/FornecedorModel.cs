@@ -17,7 +17,7 @@ namespace Intranet.Fittme.Models
             MaxLength(100)]
         public string Email { get; set; }
 
-        [Required, RegularExpression(@"([1-9]{2}\) [2-9][0-9]{3,4}\-[0-9]{4}$"), 
+        [Required, RegularExpression(@"^\([1-9]{2}\) [2-9][0-9]{3,4}\-[0-9]{4}$"), 
             MaxLength(15)]
         public string Celular { get; set; }
     }
