@@ -17,6 +17,11 @@ namespace Intranet.Fittme.BLL
             _intranetDAL = intranetDAL;
         }
 
+        public async Task<List<FornecedorMOD>> BuscaFornecedores()
+        {
+            return await _intranetDAL.BuscaFornecedores();
+        }
+
         public async Task<bool> CadastraFornecedor(FornecedorMOD fornecedor)
         {
             return await _intranetDAL.CadastraFornecedor(fornecedor) > 0;

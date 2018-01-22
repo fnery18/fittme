@@ -10,5 +10,6 @@ namespace Intranet.Fittme.DAL.Interfaces
     public interface IIntranetDAL
     {
         Task<int> CadastraFornecedor(FornecedorMOD fornecedor);
+        Task<List<FornecedorMOD>> BuscaFornecedores();
     }
 }

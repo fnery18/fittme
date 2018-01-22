@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Intranet.Fittme.MOD;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -8,8 +9,6 @@ namespace Intranet.Fittme.Models
 {
     public class FornecedorModel
     {
-        public int Codigo { get; set; }
-
         [Required, MaxLength(100)]
         public string Nome { get; set; }
 
@@ -20,5 +19,12 @@ namespace Intranet.Fittme.Models
         [Required, RegularExpression(@"^\([1-9]{2}\) [2-9][0-9]{3,4}\-[0-9]{4}$"), 
             MaxLength(15)]
         public string Celular { get; set; }
+
+        public FornecedorModel(FornecedorMOD fornecedor)
+        {
+            Nome = fornecedor.Nome;
+            Email = fornecedor.Email;
+            Celular = fornecedor.Celular;
+        }
     }
 }

@@ -98,9 +98,12 @@ namespace Intranet.Fittme.Controllers
                 Mensagem = "Ops, campos não preenchidos corretamente"
             });
         }
-        public ActionResult ListarFornecedores()
+        public async Task<ActionResult> ListarFornecedores()
         {
-            return View("Fornecedores/Listar");
+            var model = (await _intranetBLL.BuscaFornecedores())
+                                            .Select(c => new FornecedorModel(c))
+                                                .ToList();
+            return View("Fornecedores/Listar", model);
         }
         #endregion
 

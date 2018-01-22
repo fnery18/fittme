@@ -10,5 +10,6 @@ namespace Intranet.Fittme.BLL.Interfaces
     public interface IIntranetBLL
     {
         Task<bool> CadastraFornecedor(FornecedorMOD fornecedor);
+        Task<List<FornecedorMOD>> BuscaFornecedores();
     }
 }

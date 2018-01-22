@@ -1,25 +1,53 @@
-﻿html{
+﻿@font-face {
+    font-family: Poppins-Regular;
+    src: url('../fonts/poppins/Poppins-Regular.ttf');
+}
+
+a {
+    font-family: Poppins-Regular;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #666666;
+    margin: 0px;
+    transition: all 0.8s;
+    -webkit-transition: all 0.8s;
+    -o-transition: all 0.8s;
+    -moz-transition: all 0.8s;
+}
+
+    a:focus {
+        outline: none !important;
+    }
+
+    a:hover {
+        text-decoration: none;
+        color: #e74c3c !important;
+    }
+
+html {
     width: 100% !important;
     height: 100% !important;
 }
-.img-logo{
-    width:80px;
-    height:80px;
+
+.img-logo {
+    width: 80px;
+    height: 80px;
 }
-.main{
+
+.main {
     height: 100%;
 }
 
 
-.alert{
-padding-left: 30px;
-margin: 30px;
-position: fixed;
-z-index: 9999999;
-right: 0;
-top: 0;
-
+.alert {
+    padding-left: 30px;
+    margin: 30px;
+    position: fixed;
+    z-index: 9999999;
+    right: 0;
+    top: 0;
 }
+
 body {
     background-color: #000000 !important;
     padding-top: 50px;
@@ -40,4 +68,3 @@ select,
 textarea {
     max-width: 280px;
 }
-

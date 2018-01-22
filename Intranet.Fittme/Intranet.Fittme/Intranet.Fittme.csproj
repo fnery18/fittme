@@ -118,6 +118,7 @@
     <Content Include="Content\Images\logo.jpg" />
     <Content Include="Content\main.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\tabela\table.css" />
     <Content Include="Content\util.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\poppins\iconic\css\material-design-iconic-font.min.css" />
@@ -140,6 +141,7 @@
     <Content Include="fonts\poppins\iconic\fonts\Material-Design-Iconic-Font.woff2" />
     <Content Include="fonts\poppins\iconic\fonts\Material-Design-Iconic-Font.ttf" />
     <Content Include="fonts\poppins\iconic\fonts\Material-Design-Iconic-Font.woff" />
+    <Content Include="fonts\poppins\Poppins-Bold.ttf" />
     <None Include="Scripts\jquery-bootstrap\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\form.js" />
     <Content Include="Scripts\jquery-bootstrap\jquery-1.10.2.js" />

@@ -11,6 +11,20 @@ namespace Intranet.Fittme.DAL
 {
     public class IntranetDAL : IIntranetDAL
     {
+        public async Task<List<FornecedorMOD>> BuscaFornecedores()
+        {
+            using (var conncetion = ConnectionFactory.site_fittme())
+            {
+                var query = @"
+                            SELECT 
+                                * 
+                            FROM 
+                                Fornecedores";
+
+                return (await conncetion.QueryAsync<FornecedorMOD>(query)).ToList();
+            }
+        }
+
         public async Task<int> CadastraFornecedor(FornecedorMOD fornecedor)
         {
             using (var connection = ConnectionFactory.site_fittme())
