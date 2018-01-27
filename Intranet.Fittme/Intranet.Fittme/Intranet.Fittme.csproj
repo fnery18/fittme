@@ -109,9 +109,6 @@
     <Content Include="App_Data\db_log.ldf">
       <DependentUpon>db.mdf</DependentUpon>
     </Content>
-    <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
-    <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\form.css" />
     <Content Include="Content\Images\bg-01.jpg" />
@@ -121,38 +118,20 @@
     <Content Include="Content\tabela\table.css" />
     <Content Include="Content\util.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="fonts\poppins\iconic\css\material-design-iconic-font.min.css" />
+    <Content Include="fonts\material-design-iconic-font.min.css" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Scripts\alert.js" />
     <Content Include="Scripts\autenticacao.js" />
     <Content Include="Scripts\fornecedor.js" />
-    <Content Include="Scripts\jquery-bootstrap\bootstrap.js" />
     <Content Include="Scripts\jquery-bootstrap\bootstrap.min.js" />
     <Content Include="fonts\poppins\Poppins-Regular.ttf" />
-    <Content Include="fonts\poppins\Poppins-Medium.ttf" />
-    <Content Include="fonts\poppins\iconic\fonts\Material-Design-Iconic-Font.woff2" />
-    <Content Include="fonts\poppins\iconic\fonts\Material-Design-Iconic-Font.ttf" />
-    <Content Include="fonts\poppins\iconic\fonts\Material-Design-Iconic-Font.woff" />
-    <Content Include="fonts\poppins\Poppins-Bold.ttf" />
-    <None Include="Scripts\jquery-bootstrap\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\form.js" />
-    <Content Include="Scripts\jquery-bootstrap\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-bootstrap\jquery-1.10.2.min.js" />
-    <Content Include="Scripts\jquery-bootstrap\jquery-1.10.2.min.map" />
-    <None Include="Scripts\jquery-bootstrap\jquery-3.2.1.intellisense.js" />
-    <Content Include="Scripts\jquery-bootstrap\jquery-3.2.1.js" />
     <Content Include="Scripts\jquery-bootstrap\jquery-3.2.1.min.js" />
-    <Content Include="Scripts\jquery-bootstrap\jquery-3.2.1.slim.js" />
-    <Content Include="Scripts\jquery-bootstrap\jquery-3.2.1.slim.min.js" />
-    <Content Include="Scripts\jquery-bootstrap\modernizr-2.6.2.js" />
     <Content Include="Scripts\jquery.mask.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -175,8 +154,6 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
-    <Content Include="Scripts\jquery-bootstrap\jquery-3.2.1.slim.min.map" />
-    <Content Include="Scripts\jquery-bootstrap\jquery-3.2.1.min.map" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Autenticacao\Index.cshtml" />
