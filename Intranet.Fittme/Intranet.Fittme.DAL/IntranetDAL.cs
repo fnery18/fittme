@@ -25,6 +25,19 @@ namespace Intranet.Fittme.DAL
             }
         }
 
+        public async Task<PropriedadesMOD> BuscaPropriedades()
+        {
+            using (var connection = ConnectionFactory.site_fittme())
+            {
+                PropriedadesMOD propriedades = new PropriedadesMOD();
+                var query = @"SELECT * FROM Tipos";
+                var query2 = @"SELECT * FROM Fornecedores";
+                propriedades.Tipos = (await connection.QueryAsync<TipoMOD>(query)).ToList();
+                propriedades.Fornecedores = (await connection.QueryAsync<FornecedorMOD>(query2)).ToList();
+                return propriedades;
+            }
+        }
+
         public async Task<int> CadastraFornecedor(FornecedorMOD fornecedor)
         {
             using (var connection = ConnectionFactory.site_fittme())
@@ -50,6 +63,32 @@ namespace Intranet.Fittme.DAL
 
                     return linhasInseridas;
                 }
+            }
+        }
+
+        public async Task<int> CadastraProduto(ProdutoMOD produto, string caminho)
+        {
+            using (var connection = ConnectionFactory.site_fittme())
+            {
+                var query = @"
+                            INSERT INTO 
+                                Produtos (Codigo_Produto, Nome, 
+                                            Codigo_Tipo, Imagem, Codigo_Fornecedor, Preco, Quantidade)
+                            VALUES 
+                                (@Codigo_Produto, @Nome, @Codigo_Tipo, 
+                                    @caminho, @Codigo_Fornecedor, @Preco, @Quantidade)";
+
+                return (await connection.ExecuteAsync(query, new
+                {
+                    Codigo_Produto = produto.Codigo_Produto,
+                    caminho = caminho,
+                    Nome = produto.Nome,
+                    Codigo_Tipo = produto.Codigo_Tipo,
+                    Codigo_Fornecedor = produto.Codigo_Fornecedor,
+                    Preco = produto.Preco,
+                    Quantidade = produto.Quantidade
+                }));
+
             }
         }
     }

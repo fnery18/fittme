@@ -66,6 +66,14 @@
                                 <li><a href="~/Intranet/ListarUsuarios">Listar</a></li>
                             </ul>
                         </li>
+                        <li class="dropdown @(ViewContext.RouteData.Values["Action"].ToString().ToLower().Contains("configuracoes") ? "active" : "")">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Configuracoes <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="~/Intranet/Usuario">Download de dados</a></li>
+                                <li><a href="~/Intranet/ListarUsuarios">Atualizar base (excel)</a></li>
+                                <li><a href="~/Intranet/ListarUsuarios">Editar Propriedades</a></li>
+                            </ul>
+                        </li>
                     }
                 </ul>
             </div>

@@ -116,7 +116,6 @@
     <Content Include="Content\main.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\tabela\table.css" />
-    <Content Include="Content\util.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\material-design-iconic-font.min.css" />
     <Content Include="Global.asax" />
@@ -133,6 +132,7 @@
     <Content Include="Scripts\form.js" />
     <Content Include="Scripts\jquery-bootstrap\jquery-3.2.1.min.js" />
     <Content Include="Scripts\jquery.mask.js" />
+    <Content Include="Scripts\produto.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -148,7 +148,10 @@
     </Compile>
     <Compile Include="Models\AutenticacaoModel.cs" />
     <Compile Include="Models\FornecedorModel.cs" />
+    <Compile Include="Models\ProdutoModel.cs" />
+    <Compile Include="Models\PropriedadesModel.cs" />
     <Compile Include="Models\SessionCheck.cs" />
+    <Compile Include="Models\TipoModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -168,6 +171,8 @@
     <Content Include="Views\Intranet\Usuarios\Cadastrar.cshtml" />
     <Content Include="Views\Intranet\Vendas\Listar.cshtml" />
     <Content Include="Views\Intranet\Vendas\Cadastrar.cshtml" />
+    <Content Include="fonts\Material-Design-Iconic-Font.woff" />
+    <Content Include="fonts\Material-Design-Iconic-Font.woff2" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -175,7 +180,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Content\Images\Produtos\" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Intranet.Fittme.BLL\Intranet.Fittme.BLL.csproj">
       <Project>{6e9dc9dc-5437-484b-bbf0-0ad8b995eaf8}</Project>

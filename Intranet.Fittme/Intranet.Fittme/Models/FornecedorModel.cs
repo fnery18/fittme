@@ -9,6 +9,7 @@ namespace Intranet.Fittme.Models
 {
     public class FornecedorModel
     {
+        public int Codigo { get; set; }
         [Required, MaxLength(100)]
         public string Nome { get; set; }
 
@@ -22,6 +23,7 @@ namespace Intranet.Fittme.Models
 
         public FornecedorModel(FornecedorMOD fornecedor)
         {
+            Codigo = fornecedor.Codigo;
             Nome = fornecedor.Nome;
             Email = fornecedor.Email;
             Celular = fornecedor.Celular;

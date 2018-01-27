@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace Intranet.Fittme.MOD
 {
@@ -11,9 +12,12 @@ namespace Intranet.Fittme.MOD
         public int Codigo { get; set; } // cod linha banco
         public string Codigo_Produto { get; set; } // hash do produto 
         public string Nome { get; set; }
-        public string Tipo { get; set; } // TAMANHO / NUMERACAO PMG ETC
-        public string Imagem { get; set; } // URL
-        public string Fornecedor { get; set; }
+        public int Quantidade { get; set; }
+        public int Codigo_Tipo { get; set; } // TAMANHO / NUMERACAO PMG ETC
+        public HttpPostedFileBase Imagem { get; set; } // URL
+        public int Codigo_Fornecedor{ get; set; }
         public bool Estoque { get;set; }
+        public decimal Preco { get; set; }
+
     }
 }

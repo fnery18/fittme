@@ -25,13 +25,47 @@ namespace Intranet.Fittme.Controllers
         }
 
         #region Produtos
-        public ActionResult Produto()
+        public async Task<ActionResult> Produto()
         {
-            return View("Produtos/Cadastrar");
+            PropriedadesModel model = new PropriedadesModel((await _intranetBLL.BuscaPropriedades()));
+            return View("Produtos/Cadastrar", model);
         }
-        public ActionResult ListarProdutos()
+        public async Task<ActionResult> ListarProdutos()
         {
             return View("Produtos/Listar");
+        }
+        [HttpPost]
+        public async Task<JsonResult> CadastraProduto(ProdutoModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                if (model.Imagem.ContentType.Contains("image"))
+                {
+                    ProdutoMOD produto = new ProdutoMOD()
+                    {
+                        Codigo_Fornecedor = model.Codigo_Fornecedor,
+                        Codigo_Produto = model.Codigo_Produto,
+                        Imagem = model.Imagem,
+                        Quantidade = model.Quantidade,
+                        Codigo_Tipo = model.Codigo_Tipo,
+                        Nome = model.Nome,
+                        Preco = model.Preco
+                    };
+
+                    var cadastrou = await _intranetBLL.CadastraProduto(produto);
+
+                    if (cadastrou)
+                        return Json(new { Sucesso = true });
+                    else
+                        return Json(new { Sucesso = false, Mensagem = "Ops, ocorreu um erro ao cadastrar" });
+                }
+            }
+
+            return Json(new
+            {
+                Sucesso = false,
+                Mensagem = "Erro, campos não preenchidos corretamente."
+            });
         }
         #endregion
 

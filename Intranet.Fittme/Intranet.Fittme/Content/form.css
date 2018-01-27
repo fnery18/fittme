@@ -31,6 +31,7 @@
             }
 
         .contact-form .input-block label {
+            font-family: Poppins-Regular;
             position: absolute;
             left: 25px;
             top: 25px;
@@ -105,9 +106,7 @@
     }
 }
 /*----page styles---*/
-body {
-    font-family: 'Roboto', sans-serif;
-}
+
 
 .contact-wrap {
     padding: 15px;
