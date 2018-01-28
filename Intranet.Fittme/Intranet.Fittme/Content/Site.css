@@ -58,7 +58,12 @@ html {
 }
 
 body {
-    background-color: #000000 !important;
+    background-size: 100%;
+    background: #e74c3c;
+    background: -webkit-linear-gradient(bottom, #e74c3c, #2c3e50);
+    background: -o-linear-gradient(bottom, #e74c3c, #2c3e50);
+    background: -moz-linear-gradient(bottom, #e74c3c, #2c3e50);
+    background: linear-gradient(bottom, #e74c3c, #2c3e50);
     padding-top: 50px;
     padding-bottom: 20px;
     width: 100% !important;
