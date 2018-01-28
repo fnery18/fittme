@@ -11,6 +11,27 @@ namespace Intranet.Fittme.DAL
 {
     public class IntranetDAL : IIntranetDAL
     {
+        public async Task<int> AlteraFornecedor(FornecedorMOD fornecedor)
+        {
+            using (var connection = ConnectionFactory.site_fittme())
+            {
+                var query = @"
+                            UPDATE 
+                                Fornecedores 
+                            SET 
+                                Nome = @Nome, Email = @Email, Celular = @Celular
+                            WHERE
+                                Codigo = @Codigo";
+                return await connection.ExecuteAsync(query, new
+                {
+                    Nome = fornecedor.Nome,
+                    Email = fornecedor.Email,
+                    Celular = fornecedor.Celular,
+                    Codigo = fornecedor.Codigo
+                });
+            }
+        }
+
         public async Task<List<FornecedorMOD>> BuscaFornecedores()
         {
             using (var conncetion = ConnectionFactory.site_fittme())
@@ -89,6 +110,15 @@ namespace Intranet.Fittme.DAL
                     Quantidade = produto.Quantidade
                 }));
 
+            }
+        }
+
+        public async Task<int> ExcluiFornecedor(int codigo)
+        {
+            using (var connection = ConnectionFactory.site_fittme())
+            {
+                var query = @"DELETE FROM Fornecedores WHERE Codigo = @codigo";
+                return await connection.ExecuteAsync(query, new { codigo });
             }
         }
     }

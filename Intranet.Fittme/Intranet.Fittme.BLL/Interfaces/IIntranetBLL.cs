@@ -13,5 +13,7 @@ namespace Intranet.Fittme.BLL.Interfaces
         Task<List<FornecedorMOD>> BuscaFornecedores();
         Task<PropriedadesMOD> BuscaPropriedades();
         Task<bool> CadastraProduto(ProdutoMOD produto);
+        Task<bool> AlteraFornecedor(FornecedorMOD fornecedor);
+        Task<bool> ExcluiFornecedor(int codigo);
     }
 }

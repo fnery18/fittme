@@ -126,7 +126,8 @@
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Scripts\alert.js" />
     <Content Include="Scripts\autenticacao.js" />
-    <Content Include="Scripts\fornecedor.js" />
+    <Content Include="Scripts\fornecedor\cadastrar.js" />
+    <Content Include="Scripts\fornecedor\listar.js" />
     <Content Include="Scripts\jquery-bootstrap\bootstrap.min.js" />
     <Content Include="fonts\poppins\Poppins-Regular.ttf" />
     <Content Include="Scripts\form.js" />
@@ -173,6 +174,7 @@
     <Content Include="Views\Intranet\Vendas\Cadastrar.cshtml" />
     <Content Include="fonts\Material-Design-Iconic-Font.woff" />
     <Content Include="fonts\Material-Design-Iconic-Font.woff2" />
+    <Content Include="Views\Intranet\Fornecedores\_TabelaFornecedoresPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

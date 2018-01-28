@@ -8,6 +8,10 @@ namespace Intranet.Fittme.MOD
 {
     public class FornecedorMOD
     {
+        public FornecedorMOD()
+        {
+
+        }
         public int Codigo { get; set; }
         public string Nome { get; set; }
         public string Email  { get; set; }

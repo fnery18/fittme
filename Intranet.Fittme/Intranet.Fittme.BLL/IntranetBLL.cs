@@ -20,6 +20,11 @@ namespace Intranet.Fittme.BLL
             _intranetDAL = intranetDAL;
         }
 
+        public async Task<bool> AlteraFornecedor(FornecedorMOD fornecedor)
+        {
+            return await _intranetDAL.AlteraFornecedor(fornecedor) > 0;
+        }
+
         public async Task<List<FornecedorMOD>> BuscaFornecedores()
         {
             return await _intranetDAL.BuscaFornecedores();
@@ -40,6 +45,11 @@ namespace Intranet.Fittme.BLL
             var caminho = UploadImagem(produto.Imagem);
 
             return await _intranetDAL.CadastraProduto(produto, caminho) > 0;
+        }
+
+        public async Task<bool> ExcluiFornecedor(int codigo)
+        {
+            return await _intranetDAL.ExcluiFornecedor(codigo) > 0;
         }
 
         private string UploadImagem(HttpPostedFileBase imagem)

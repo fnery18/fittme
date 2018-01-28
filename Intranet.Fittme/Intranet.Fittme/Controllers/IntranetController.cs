@@ -19,12 +19,12 @@ namespace Intranet.Fittme.Controllers
         {
             _intranetBLL = intranetBLL;
         }
-       
+
         public ActionResult Index()
         {
             return View();
         }
-            
+
         public ActionResult Logout()
         {
             Session["user"] = null;
@@ -119,32 +119,53 @@ namespace Intranet.Fittme.Controllers
                 bool cadastrou = await _intranetBLL.CadastraFornecedor(fornecedor);
 
                 if (cadastrou)
-                {
-                    return Json(new
-                    {
-                        Sucesso = true
-                    });
-                }
+                    return Json(new { Sucesso = true });
 
-                return Json(new
-                {
-                    Sucesso = false,
-                    Mensagem = "Ops, ocorreu um erro ao cadastrar esse fornecedor"
-                });
+                return Json(new { Sucesso = false, Mensagem = "Ops, ocorreu um erro ao cadastrar esse fornecedor" });
             }
-
-            return Json(new
-            {
-                Sucesso = false,
-                Mensagem = "Ops, campos não preenchidos corretamente"
-            });
+            return Json(new { Sucesso = false, Mensagem = "Ops, campos não preenchidos corretamente" });
         }
-        public async Task<ActionResult> ListarFornecedores()
+        public ActionResult Fornecedores()
+        {
+            return View("Fornecedores/Listar");
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> TabelaFornecedores()
         {
             var model = (await _intranetBLL.BuscaFornecedores())
-                                            .Select(c => new FornecedorModel(c))
-                                                .ToList();
-            return View("Fornecedores/Listar", model);
+                                              .Select(c => new FornecedorModel(c))
+                                                  .ToList();
+
+            return Request.IsAjaxRequest() 
+                ? (ActionResult)PartialView("Fornecedores/_TabelaFornecedoresPartial", model) 
+                : View("Fornecedores/Listar");
+        }
+        [HttpPost]
+        public async Task<JsonResult> AlteraFornecedor(FornecedorModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var fornecedor = new FornecedorMOD
+                {
+                    Codigo = model.Codigo,
+                    Nome = model.Nome,
+                    Celular = model.Celular,
+                    Email = model.Email
+                };
+                bool alterou = await _intranetBLL.AlteraFornecedor(fornecedor);
+                if (alterou)
+                    return Json(new { Sucesso = true });
+
+                return Json(new { Sucesso = false, Mensagem = "Ops, ocorreu um erro ao alterar esse fornecedor" });
+            }
+            return Json(new { Sucesso = false, Mensagem = "Ops, campos não preenchidos corretamente" });
+        }
+
+        [HttpPost]
+        public async Task<JsonResult> ExcluiFornecedor(int codigo)
+        {
+            return Json(new { Sucesso = await _intranetBLL.ExcluiFornecedor(codigo) });
         }
         #endregion
 

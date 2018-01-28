@@ -13,5 +13,7 @@ namespace Intranet.Fittme.DAL.Interfaces
         Task<List<FornecedorMOD>> BuscaFornecedores();
         Task<PropriedadesMOD> BuscaPropriedades();
         Task<int> CadastraProduto(ProdutoMOD produto, string caminho);
+        Task<int> AlteraFornecedor(FornecedorMOD fornecedor);
+        Task<int> ExcluiFornecedor(int codigo);
     }
 }
