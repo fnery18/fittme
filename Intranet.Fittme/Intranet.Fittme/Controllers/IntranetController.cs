@@ -24,7 +24,7 @@ namespace Intranet.Fittme.Controllers
         {
             return View();
         }
-
+            
         public ActionResult Logout()
         {
             Session["user"] = null;

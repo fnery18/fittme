@@ -20,7 +20,11 @@ namespace Intranet.Fittme.Controllers
         // GET: Autenticacao
         public async Task<ActionResult> Login()
         {
-            return View("Index");
+            if (Session["user"] == null)
+                return View("Index");
+
+            return RedirectToAction("Index", "Intranet");
+
         }
         [HttpPost]
         public async Task<ActionResult> Autentica(AutenticacaoModel model)
@@ -38,7 +42,7 @@ namespace Intranet.Fittme.Controllers
                     Session["user"] = usuario.Usuario;
                     return RedirectToAction("Index", "Intranet");
                 }
-                    
+
             }
             return RedirectToAction("Login");
         }
