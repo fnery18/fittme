@@ -44,7 +44,6 @@ namespace Intranet.Fittme.BLL
 
         private string UploadImagem(HttpPostedFileBase imagem)
         {
-
             var caminho = HostingEnvironment.MapPath("~/Content/Images/Produtos");
             string caminhoArquivo = Path.Combine(caminho, Path.GetFileName(imagem.FileName));
 

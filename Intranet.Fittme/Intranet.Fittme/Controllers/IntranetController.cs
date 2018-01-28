@@ -10,6 +10,7 @@ using System.Web.Mvc;
 
 namespace Intranet.Fittme.Controllers
 {
+    [SessionCheck]
     public class IntranetController : Controller
     {
 
@@ -18,10 +19,16 @@ namespace Intranet.Fittme.Controllers
         {
             _intranetBLL = intranetBLL;
         }
-        //[SessionCheck]
+       
         public ActionResult Index()
         {
             return View();
+        }
+
+        public ActionResult Logout()
+        {
+            Session["user"] = null;
+            return RedirectToAction("Login", "Autenticacao");
         }
 
         #region Produtos

@@ -16,8 +16,8 @@ namespace Intranet.Fittme.Models
             {
                 filterContext.Result = new RedirectToRouteResult(
                     new RouteValueDictionary {
-                                { "Controller", "Autenticacao" },
-                                { "Action", "Index" }
+                                { "Controller", "" },
+                                { "Action", "" }
                                 });
             }
         }

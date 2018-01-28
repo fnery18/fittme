@@ -40,7 +40,7 @@ namespace Intranet.Fittme.Controllers
                 }
                     
             }
-            return View("Index");
+            return RedirectToAction("Login");
         }
     }
 }

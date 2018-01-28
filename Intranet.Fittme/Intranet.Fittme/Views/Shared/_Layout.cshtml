@@ -23,7 +23,7 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    @if (ViewContext.RouteData.Values["Action"].ToString() != "Login")
+                    @if (Session["user"] != null)
                     {
                         <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")"><a href="~/Intranet/    ">Home <span class="sr-only">(current)</span></a></li>
                         <li class="dropdown @(ViewContext.RouteData.Values["Action"].ToString().ToLower().Contains("produto") ? "active" : "")">
@@ -64,6 +64,7 @@
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="~/Intranet/Usuario">Cadastrar</a></li>
                                 <li><a href="~/Intranet/ListarUsuarios">Listar</a></li>
+                                <li><a href="~/Intranet/Logout">Logout</a></li>
                             </ul>
                         </li>
                         <li class="dropdown @(ViewContext.RouteData.Values["Action"].ToString().ToLower().Contains("configuracoes") ? "active" : "")">
