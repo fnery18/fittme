@@ -115,7 +115,8 @@
 .all {
     width: 100%;
     height: auto;
-
+    padding-top: 50px;
+    padding-bottom: 20px;
 }
 
 h1 {

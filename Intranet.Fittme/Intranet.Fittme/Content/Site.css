@@ -31,6 +31,13 @@ a {
 html {
     width: 100% !important;
     height: 100vh !important;
+    background-size: 100%;
+    background: #e74c3c !important;
+    background: -webkit-linear-gradient(bottom, #e74c3c, #2c3e50) !important;
+    background: -o-linear-gradient(bottom, #e74c3c, #2c3e50);
+    background: -moz-linear-gradient(bottom, #e74c3c, #2c3e50);
+    background: linear-gradient(bottom, #e74c3c, #2c3e50);
+    background-repeat: no-repeat !important;
 }
 
 .img-logo {
@@ -61,6 +68,9 @@ html {
 }
 
 body {
+    width: 100% !important;
+    height: 100% !important;
+    color: #222;
     background-size: 100%;
     background: #e74c3c;
     background: -webkit-linear-gradient(bottom, #e74c3c, #2c3e50);
@@ -68,17 +78,14 @@ body {
     background: -moz-linear-gradient(bottom, #e74c3c, #2c3e50);
     background: linear-gradient(bottom, #e74c3c, #2c3e50);
     background-repeat: no-repeat;
-    padding-top: 50px;
-    padding-bottom: 20px;
-    width: 100% !important;
-    height: 100% !important;
-    color: #222;
+
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
