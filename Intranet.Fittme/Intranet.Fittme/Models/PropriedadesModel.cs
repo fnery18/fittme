@@ -10,6 +10,7 @@ namespace Intranet.Fittme.Models
     {
         public List<FornecedorModel> Fornecedores { get; set; }
         public List<TipoModel> Tipos { get; set; }
+        public List<CorModel> Cores { get; set; }
 
         public PropriedadesModel()
         {
@@ -20,6 +21,7 @@ namespace Intranet.Fittme.Models
         {
             Fornecedores = prop.Fornecedores.Select(c => new FornecedorModel(c)).ToList();
             Tipos = prop.Tipos.Select(c => new TipoModel(c)).ToList();
+            Cores = prop.Cores.Select(c => new CorModel(c)).ToList();
         }
     }
 }

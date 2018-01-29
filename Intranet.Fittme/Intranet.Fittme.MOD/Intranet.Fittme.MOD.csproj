@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="ArquivoMOD.cs" />
     <Compile Include="AutenticacaoMOD.cs" />
+    <Compile Include="CorMOD.cs" />
     <Compile Include="FornecedorMOD.cs" />
     <Compile Include="ProdutoMOD.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

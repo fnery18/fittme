@@ -137,8 +137,8 @@ namespace Intranet.Fittme.Controllers
                                               .Select(c => new FornecedorModel(c))
                                                   .ToList();
 
-            return Request.IsAjaxRequest() 
-                ? (ActionResult)PartialView("Fornecedores/_TabelaFornecedoresPartial", model) 
+            return Request.IsAjaxRequest()
+                ? (ActionResult)PartialView("Fornecedores/_TabelaFornecedoresPartial", model)
                 : View("Fornecedores/Listar");
         }
         [HttpPost]
@@ -177,6 +177,144 @@ namespace Intranet.Fittme.Controllers
         public ActionResult ListarUsuarios()
         {
             return View("Usuario/Listar");
+        }
+        #endregion
+
+        #region Configuracoes
+
+        public ActionResult Configuracoes()
+        {
+            return View("Config/Configuracoes");
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> TabelaCores()
+        {
+            PropriedadesModel model = new PropriedadesModel((await _intranetBLL.BuscaPropriedades()));
+
+            return Request.IsAjaxRequest()
+                ? (ActionResult)PartialView("Config/_TabelaCoresPartial", model.Cores)
+                : View("Config/Configuracoes");
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> TabelaTipos()
+        {
+            PropriedadesModel model = new PropriedadesModel((await _intranetBLL.BuscaPropriedades()));
+
+            return Request.IsAjaxRequest()
+                ? (ActionResult)PartialView("Config/_TabelaTiposPartial", model.Tipos)
+                : View("Config/Configuracoes");
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> CadastraTipo(TipoModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                TipoMOD tipo = new TipoMOD { Nome = model.Nome };
+                bool cadastrou = await _intranetBLL.CadastraTipo(tipo);
+
+                if (cadastrou)
+                    return Json(new { Sucesso = true });
+                return Json(new { Sucesso = false, Mensagem = "Ops, Ocorreu um erro ao cadastrar o tipo." });
+            }
+
+            return Json(new { Sucesso = false, Mensagem = "Ops, Campos não preenchidos corretamente." });
+        }
+        [HttpPost]
+        public async Task<ActionResult> AlteraTipo(TipoModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                TipoMOD tipo = new TipoMOD { Nome = model.Nome, Codigo = model.Codigo };
+                bool alterou = await _intranetBLL.AlteraTipo(tipo);
+
+                if (alterou)
+                    return Json(new { Sucesso = true });
+                return Json(new { Sucesso = false, Mensagem = "Ops, Ocorreu um erro ao editar o tipo." });
+            }
+
+            return Json(new { Sucesso = false, Mensagem = "Ops, Campos não preenchidos corretamente." });
+        }
+        [HttpPost]
+        public async Task<ActionResult> ExcluiTipo(TipoModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                TipoMOD tipo = new TipoMOD { Codigo = model.Codigo };
+                bool excluio = await _intranetBLL.ExcluiTipo(tipo);
+
+                if (excluio)
+                    return Json(new { Sucesso = true });
+                return Json(new { Sucesso = false, Mensagem = "Ops, Ocorreu um erro ao excluir o tipo." });
+            }
+
+            return Json(new { Sucesso = false, Mensagem = "Ops, Campos não preenchidos corretamente." });
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> CadastraCor(CorModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                CorMOD cor = new CorMOD
+                {
+                    Nome = model.Nome,
+                    Codigo = model.Codigo,
+                    Codigo_Cor = model.Codigo_Cor,
+                    Cor = model.Cor
+                };
+                bool excluio = await _intranetBLL.CadastraCor(cor);
+
+                if (excluio)
+                    return Json(new { Sucesso = true });
+                return Json(new { Sucesso = false, Mensagem = "Ops, Ocorreu um erro ao cadastrar a cor." });
+            }
+
+            return Json(new { Sucesso = false, Mensagem = "Ops, Campos não preenchidos corretamente." });
+        }
+        [HttpPost]
+        public async Task<ActionResult> AlteraCor(CorModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                CorMOD cor = new CorMOD
+                {
+                    Nome = model.Nome,
+                    Codigo = model.Codigo,
+                    Codigo_Cor = model.Codigo_Cor,
+                    Cor = model.Cor
+                };
+                bool alterou = await _intranetBLL.AlteraCor(cor);
+
+                if (alterou)
+                    return Json(new { Sucesso = true });
+                return Json(new { Sucesso = false, Mensagem = "Ops, Ocorreu um erro ao editar a cor." });
+            }
+
+            return Json(new { Sucesso = false, Mensagem = "Ops, Campos não preenchidos corretamente." });
+        }
+        [HttpPost]
+        public async Task<ActionResult> ExcluiCor(CorModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                CorMOD cor = new CorMOD
+                {
+                    Nome = model.Nome,
+                    Codigo = model.Codigo,
+                    Codigo_Cor = model.Codigo_Cor,
+                    Cor = model.Cor
+                };
+                bool excluio = await _intranetBLL.ExcluiCor(cor);
+
+                if (excluio)
+                    return Json(new { Sucesso = true });
+                return Json(new { Sucesso = false, Mensagem = "Ops, Ocorreu um erro ao excluir a cor." });
+            }
+
+            return Json(new { Sucesso = false, Mensagem = "Ops, Campos não preenchidos corretamente." });
         }
         #endregion
 

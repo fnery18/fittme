@@ -10,5 +10,6 @@ namespace Intranet.Fittme.MOD
     {
         public List<FornecedorMOD> Fornecedores { get; set; }
         public List<TipoMOD> Tipos { get; set; }
+        public List<CorMOD> Cores { get; set; }
     }
 }

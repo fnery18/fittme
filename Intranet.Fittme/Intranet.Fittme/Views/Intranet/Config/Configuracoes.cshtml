@@ -1,0 +1,144 @@
+﻿
+@{
+    ViewBag.Title = "Configuracoes";
+}
+
+@section Styles{
+    <link href="~/Content/tabela/table.css" rel="stylesheet" />
+}
+
+<div class="all">
+    <h1>
+        Configurações
+        <small>Cadastre,altere e exclua as variavéis como cores, e tamanhos</small>
+    </h1>
+    <div class="container-table100">
+        <div class="wrap-table100">
+            <h2>Cores</h2>
+            <div id="partialCores"></div>
+            <div class="wrap-table100">
+                <h2>Tipos</h2>
+                <div id="partialTipos"></div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Exclui Cor -->
+<div class="modal fade" id="modalExcluirCor" tabindex="-1" role="dialog" aria-labelledby="modalExcluirLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <p class="modal-title" id="modalExcluir">Excluir Cor</p>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Você tem certeza que deseja excluir a cor <font id="txtCorNome"></font>?
+                <input type="hidden" id="txtCodigoCorDelete" value="" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+                <button type="button" id="btnExcluirCor" class="btn btn-danger">Excluir</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Exclui Tipo -->
+<div class="modal fade" id="modalExcluirTipo" tabindex="-1" role="dialog" aria-labelledby="modalExcluirLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <p class="modal-title" id="modalExcluir">Excluir Tipo</p>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Você tem certeza que deseja excluir o tipo <font id="txtTipo"></font>?
+                <input type="hidden" id="txtCodigoTipoDelete" value="" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+                <button type="button" id="btnExcluirTipo" class="btn btn-danger">Excluir</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Altera/Cadastra Cor -->
+<div class="modal fade" id="modalEditarCor" tabindex="-1" role="dialog" aria-labelledby="modalEditarLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <p class="modal-title" id="tituloModalCor">Cadastrar Cor</p>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row2">
+                    <div class="col-md-6">
+                        <label>Nome: </label>
+                        <input type="text" id="txtNomeCor" class="form-control" />
+                    </div>
+                    <div class="col-md-6">
+                        <label>Codigo: </label>
+                        <a data-toggle="tooltip" data-placement="bottom" title="Ex: 'BR'">
+                            <i class="glyphicon glyphicon-info-sign"></i>
+                        </a>
+                        <input type="text" id="txtCodigo_Cor" maxlength="4" class="form-control" />
+                    </div>
+                    <div class="col-md-6">
+                        <label>Cor:</label>
+                        <a data-toggle="tooltip" data-placement="bottom" title="Cor no formato hexadecimal">
+                            <i class="glyphicon glyphicon-info-sign"></i>
+                        </a>
+                        <input type="color" id="txtCor" class="form-control" />
+                    </div>
+                    <input type="hidden" id="txtCodigoCor" value=""/>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                <button type="button" id="btnSalvarCor" class="btn btn-primary">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Altera/Cadastra Tipo -->
+<div class="modal fade" id="modalEditarTipo" tabindex="-1" role="dialog" aria-labelledby="modalEditarLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <p class="modal-title" id="tituloModalTipo">Cadastrar Tipo</p>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row2">
+                    <div class="col-md-6">
+                        <label>Tamanho: </label>
+                        <input type="text" id="txtNomeTipo" maxlength="3" class="form-control" />
+                    </div>
+                    <input type="hidden" id="txtCodigoTipo" value="" />
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                <button type="button" id="btnSalvarTipo" class="btn btn-primary">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/Scripts/configuracoes/propriedades.js"></script>
+}

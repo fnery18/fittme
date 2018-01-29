@@ -3,8 +3,8 @@ var modalExcluir = $(`#modalExcluir`);
 
 $(function () {
     $(document).ready(function () {
-        $('[data-toggle="tooltip"]').tooltip();
         BuscaFornecedores();
+        $('[data-toggle="tooltip"]').tooltip();
     });
 
     $(document).on("click", "a[data-opcao='excluir']", function () {
@@ -63,5 +63,6 @@ function BuscaFornecedores() {
     $.get("/Intranet/TabelaFornecedores/", {}, (html) =>
     {
         $("#partialFornecedores").html(html);
+        $('[data-toggle="tooltip"]').tooltip();
     })
 }
