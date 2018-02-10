@@ -1,15 +1,15 @@
 FITT.ME{
 	- Rever validacoes (pegar o tamanho dos campos no banco, comparar com as data annotations e ver se no front os inputs estao com elas tambem)
 	- Paginaco listar fornecedor
-	- Tela de editar configuracoes(Cores,Tipos(tamanhos))
 	- Tabela responsivel ta ruim, tem que mexer naqueles child (consultar o rar qe ta no desktop)
+	- Refazer tela de cadastro de produto (tem novos precos + cor)
+	- dELETAR Tabela de produtos e criar dnovo
 }
 
 git{
-	Ajustes layout + Arrumado Codigos + Criado o crud de tipo e cor
+
 }
 
-fazendo o editar lista cores e tipos (tamanho)
 
 
 

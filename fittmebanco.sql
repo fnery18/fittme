@@ -10,6 +10,7 @@ CREATE TABLE Produtos(
 	Codigo int identity,
 	Codigo_ProdutoFornecedor varchar(50) NOT NULL, -- codigo utilizado pelo fornecedor
 	Codigo_Produto varchar(20) NOT NULL, -- codigo gerado pela fiitme
+	Codigo_Cor int NOT NULL,
 	Nome varchar(100) NOT NULL,
 	Codigo_Tipo int NOT NULL,
 	Imagem varchar(500),
@@ -20,6 +21,7 @@ CREATE TABLE Produtos(
 	Quantidade int NOT NULL,
 	CONSTRAINT FK_Fornecedor FOREIGN KEY (Codigo_Fornecedor) REFERENCES Fornecedores(Codigo),
 	CONSTRAINT FK_Tipo FOREIGN KEY (Codigo_Tipo) REFERENCES Tipos(Codigo),
+	CONSTRAINT FK_Cor FOREIGN KEY (Codigo_Cor) REFERENCES Cores(Codigo),
 	PRIMARY KEY(Codigo)
 )
 
