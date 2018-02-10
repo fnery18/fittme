@@ -6,6 +6,12 @@ CREATE TABLE Fornecedores(
 	PRIMARY KEY (Codigo)
 )
 
+CREATE TABLE Tipos(
+	Codigo int identity,
+	Nome varchar(3)
+	Primary key(Codigo)
+)
+
 CREATE TABLE Produtos(
 	Codigo int identity,
 	Codigo_ProdutoFornecedor varchar(50) NOT NULL, -- codigo utilizado pelo fornecedor
@@ -31,12 +37,6 @@ CREATE TABLE Usuarios(
 	Senha varchar(20),
 	Administrador bit,
 	PRIMARY KEY(Codigo)
-)
-
-CREATE TABLE Tipos(
-	Codigo int identity,
-	Nome varchar(3)
-	Primary key(Codigo)
 )
 
 CREATE Table Cores(

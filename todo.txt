@@ -4,6 +4,7 @@ FITT.ME{
 	- Tabela responsivel ta ruim, tem que mexer naqueles child (consultar o rar qe ta no desktop)
 	- Refazer tela de cadastro de produto (tem novos precos + cor)
 	- dELETAR Tabela de produtos e criar dnovo
+	- Ajustar layout dos inputs, ta muito branco
 }
 
 git{
