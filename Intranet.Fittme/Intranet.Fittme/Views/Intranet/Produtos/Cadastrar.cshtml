@@ -1,90 +1,87 @@
 ﻿@model Intranet.Fittme.Models.PropriedadesModel
 @{
     ViewBag.Title = "Cadastrar";
+    ViewBag.TituloPagina = "Produtos";
+    ViewBag.SubTituloPagina = "Cadastro de produtos da fitt.me";
 }
 @section styles{
     <link href="~/Content/form.css" rel="stylesheet" />
 }
-<div class="all">
-    <h1>
-        Produtos
-        <small>Cadastro de produtos da FIIT.ME</small>
-    </h1>
 
-    <section class="contact-wrap">
-        <form action="" class="contact-form" enctype="multipart/form-data">
-            <div class="col-sm-6">
-                <div class="input-block">
-                    <label for=""><i class="glyphicon glyphicon-barcode"></i> Codigo</label>
-                    <input type="text" id="txtCodigo" maxlength="20" required class="form-control">
+<section class="contact-wrap">
+    <form action="" class="contact-form" enctype="multipart/form-data">
+        <div class="col-sm-6">
+            <div class="input-block">
+                <label for=""><i class="glyphicon glyphicon-barcode"></i> Codigo</label>
+                <input type="text" id="txtCodigo" maxlength="20" required class="form-control">
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="input-block">
+                <label for=""><i class="glyphicon glyphicon-user"></i> Nome</label>
+                <input type="text" id="txtNome" maxlength="100" required class="form-control">
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="input-block">
+                <label for=""><i class="glyphicon glyphicon-tags"></i> Tipo</label>
+                <select id="selectTipo" class="form-control">
+                    <option>Escolha um..</option>
+                    @foreach (var item in Model.Tipos)
+                    {
+                        <option value="@item.Codigo">@item.Nome</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="input-block">
+                <label for=""><i class="glyphicon glyphicon-shopping-cart"></i> Fornecedor</label>
+                <select id="selectFornecedor" class="form-control">
+                    <option>Escolha um..</option>
+                    @foreach (var item in Model.Fornecedores)
+                    {
+                        <option value="@item.Codigo">@item.Nome</option>
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="input-block" style="height: 150px;">
+                <div>
+                    <input type="file" accept="image/*" id="fileProduto" class="form-control form-control-lg" onchange="CarregaImagem()">
+                    <p>Selecione uma imagem para o produto</p>
                 </div>
             </div>
-            <div class="col-sm-6">
-                <div class="input-block">
-                    <label for=""><i class="glyphicon glyphicon-user"></i> Nome</label>
-                    <input type="text" id="txtNome" maxlength="100" required class="form-control">
+        </div>
+        <div class="col-md-6">
+            <div class="input-block" style="height: 150px;">
+                <div id="divProduto">
+                    <img src="" id="imgProduto" class="img-produto" />
+                    <p>Preview:</p>
                 </div>
             </div>
-            <div class="col-sm-6">
-                <div class="input-block">
-                    <label for=""><i class="glyphicon glyphicon-tags"></i> Tipo</label>
-                    <select id="selectTipo" class="form-control">
-                        <option>Escolha um..</option>
-                        @foreach (var item in Model.Tipos)
-                        {
-                            <option value="@item.Codigo">@item.Nome</option>
-                        }
-                    </select>
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="input-block">
-                    <label for=""><i class="glyphicon glyphicon-shopping-cart"></i> Fornecedor</label>
-                    <select id="selectFornecedor" class="form-control">
-                        <option>Escolha um..</option>
-                        @foreach (var item in Model.Fornecedores)
-                        {
-                            <option value="@item.Codigo">@item.Nome</option>
-                        }
-                    </select>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="input-block" style="height: 150px;">
-                    <div>
-                        <input type="file" accept="image/*" id="fileProduto" class="form-control form-control-lg" onchange="CarregaImagem()">
-                        <p>Selecione uma imagem para o produto</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="input-block" style="height: 150px;">
-                    <div id="divProduto">
-                        <img src="" id="imgProduto" class="img-produto" />
-                        <p>Preview:</p>
-                    </div>
-                </div>
-            </div>
+        </div>
 
-            <div class="col-sm-6">
-                <div class="input-block">
-                    <label for=""><i class="glyphicon glyphicon-usd"></i> Preço</label>
-                    <input type="text" id="txtPreco" maxlength="6" class="form-control">
-                </div>
+        <div class="col-sm-6">
+            <div class="input-block">
+                <label for=""><i class="glyphicon glyphicon-usd"></i> Preço</label>
+                <input type="text" id="txtPreco" maxlength="6" class="form-control">
             </div>
-            <div class="col-sm-6">
-                <div class="input-block">
-                    <label for=""><i class="glyphicon glyphicon-asterisk"></i> Quantidade</label>
-                    <input type="text" id="txtQuantidade" maxlength="3" class="form-control">
-                </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="input-block">
+                <label for=""><i class="glyphicon glyphicon-asterisk"></i> Quantidade</label>
+                <input type="text" id="txtQuantidade" maxlength="3" class="form-control">
             </div>
+        </div>
 
-            <div class="col-sm-12" style="margin-bottom: 10px;">
-                <button class="square-button" id="btnCadastrar"><font>Cadastrar</font></button>
-            </div>
-        </form>
-    </section>
-</div>
+        <div class="col-sm-12" style="margin-bottom: 10px;">
+            <button class="square-button" id="btnCadastrar"><font>Cadastrar</font></button>
+        </div>
+    </form>
+</section>
+
 
 @section scripts{
     <script src="~/Scripts/form.js"></script>

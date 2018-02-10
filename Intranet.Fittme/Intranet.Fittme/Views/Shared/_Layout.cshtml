@@ -83,8 +83,15 @@
         </div>
     </div>
 
-    <div class="main">
+    <div class="all">
         <div id="alert-helper" style="z-index: 99999999;"></div>
+        @if (Session["user"] != null)
+        {
+            <h1>
+                @ViewBag.TituloPagina
+                <small>@ViewBag.SubTituloPagina</small>
+            </h1>
+        }
         @RenderBody()
     </div>
     <script src="~/Scripts/jquery-bootstrap/jquery-3.2.1.min.js"></script>

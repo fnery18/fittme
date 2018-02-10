@@ -1,6 +1,8 @@
 ﻿.contact-form {
     margin-top: 30px;
     font-family: Poppins-Regular;
+    background-color: #E81F25;
+    margin-bottom: 10px;
 }
 
     .contact-form .input-block {

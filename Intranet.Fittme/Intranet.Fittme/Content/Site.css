@@ -6,8 +6,8 @@
 .all {
     width: 100%;
     height: 100vh !important;
-    padding-top: 50px;
-    padding-bottom: 20px;
+    margin-top: 50px;
+    background-color: transparent;
 }
 
 /*MENU*/
@@ -106,9 +106,10 @@ a {
         text-decoration: none;
         color: #E81F25 !important;
     }
-
+    
 html {
     width: 100% !important;
+    height: 100vh !important;
     background-size: 100% !important;
     background: #E81F25 !important;
     background: -webkit-linear-gradient(bottom, #E81F25, #111) !important;
