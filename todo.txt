@@ -1,7 +1,6 @@
 FITT.ME{
 	- Rever validacoes (pegar o tamanho dos campos no banco, comparar com as data annotations e ver se no front os inputs estao com elas tambem)
 	- Paginaco listar fornecedor
-	- Tabela responsivel ta ruim, tem que mexer naqueles child (consultar o rar qe ta no desktop)
 	- Refazer tela de cadastro de produto (tem novos precos + cor)
 	- dELETAR Tabela de produtos e criar dnovo
 	- Ajustar layout dos inputs, ta muito branco
@@ -11,6 +10,6 @@ git{
 
 }
 
-
-
-
+Fazendo{
+	Arrumando layout do nav (menu)
+}

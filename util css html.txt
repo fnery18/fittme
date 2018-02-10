@@ -46,8 +46,15 @@ form padrao:
 gradient background:
 
   background: #2c3e50;
-  background: -webkit-linear-gradient(top,  #e74c3c, #2c3e50);
-  background: -o-linear-gradient(top, #e74c3c, #2c3e50);
-  background: -moz-linear-gradient(top, #e74c3c, #2c3e50);
-  background: linear-gradient(top, #e74c3c, #2c3e50);
+  background: -webkit-linear-gradient(top,  #E81F25, #000);
+  background: -o-linear-gradient(top, #E81F25, #000);
+  background: -moz-linear-gradient(top, #E81F25, #000);
+  background: linear-gradient(top, #E81F25, #000);
+  
+  vermelho do logo:
+  #E81F25
+  branco:
+  #ECF0F1
+  preto:
+  #222 ou #111
 

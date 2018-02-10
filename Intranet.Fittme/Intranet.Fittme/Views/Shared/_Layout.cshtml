@@ -27,8 +27,8 @@
                 <ul class="nav navbar-nav">
                     @if (Session["user"] != null)
                     {
-                        <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")"><a href="~/Intranet/    ">Home <span class="sr-only">(current)</span></a></li>
-                        <li class="dropdown @(ViewContext.RouteData.Values["Action"].ToString().ToLower().Contains("produto") ? "active" : "")">
+                        <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "ativo" : "")"><a href="~/Intranet/    ">Home <span class="sr-only">(current)</span></a></li>
+                        <li class="dropdown @(ViewContext.RouteData.Values["Action"].ToString().ToLower().Contains("produto") ? "ativo" : "")">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Produtos <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="~/Intranet/Produto">Cadastrar</a></li>
@@ -40,28 +40,28 @@
                                     <li><a href="#">One more separated link</a></li>*@
                             </ul>
                         </li>
-                        <li class="dropdown @(ViewContext.RouteData.Values["Action"].ToString().ToLower().Contains("cliente") ? "active" : "")">
+                        <li class="dropdown @(ViewContext.RouteData.Values["Action"].ToString().ToLower().Contains("cliente") ? "ativo" : "")">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Clientes <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="~/Intranet/Cliente">Cadastrar</a></li>
                                 <li><a href="~/Intranet/ListarClientes">Listar</a></li>
                             </ul>
                         </li>
-                        <li class="dropdown @(ViewContext.RouteData.Values["Action"].ToString().ToLower().Contains("venda") ? "active" : "")">
+                        <li class="dropdown @(ViewContext.RouteData.Values["Action"].ToString().ToLower().Contains("venda") ? "ativo" : "")">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Vendas <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="~/Intranet/Venda">Cadastrar</a></li>
                                 <li><a href="~/Intranet/ListarVendas">Listar</a></li>
                             </ul>
                         </li>
-                        <li class="dropdown @(ViewContext.RouteData.Values["Action"].ToString().ToLower().Contains("fornecedor") ? "active" : "")">
+                        <li class="dropdown @(ViewContext.RouteData.Values["Action"].ToString().ToLower().Contains("fornecedor") ? "ativo" : "")">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Fornecedores <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="~/Intranet/Fornecedor">Cadastrar</a></li>
                                 <li><a href="~/Intranet/Fornecedores">Listar</a></li>
                             </ul>
                         </li>
-                        <li class="dropdown @(ViewContext.RouteData.Values["Action"].ToString().ToLower().Contains("usuario") ? "active" : "")">
+                        <li class="dropdown @(ViewContext.RouteData.Values["Action"].ToString().ToLower().Contains("usuario") ? "ativo" : "")">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Usuarios <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="~/Intranet/Usuario">Cadastrar</a></li>
@@ -69,7 +69,7 @@
                                 <li><a href="~/Intranet/Logout">Logout</a></li>
                             </ul>
                         </li>
-                        <li class="dropdown @(ViewContext.RouteData.Values["Action"].ToString().ToLower().Contains("configuracoes") ? "active" : "")">
+                        <li class="dropdown @(ViewContext.RouteData.Values["Action"].ToString().ToLower().Contains("configuracoes") ? "ativo" : "")">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Configuracoes <span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="~/Intranet/Usuario">Download de dados</a></li>
