@@ -21,15 +21,11 @@ namespace Intranet.Fittme.DAL
                             FROM 
                                 Usuarios 
                             WHERE 
-                                Usuario = @USUARIO 
+                                Usuario = @Usuario 
                             AND 
-                                Senha = @SENHA";
+                                Senha = @Senha";
 
-                return await connection.QueryFirstOrDefaultAsync<AutenticacaoMOD>(query, new
-                {
-                    USUARIO = usuario.Usuario,
-                    SENHA = usuario.Senha
-                });
+                return await connection.QueryFirstOrDefaultAsync<AutenticacaoMOD>(query, usuario);
             }
         }
 
