@@ -3,13 +3,14 @@ FITT.ME{
 	- Paginaco listar fornecedor
 	- Tela de editar configuracoes(Cores,Tipos(tamanhos))
 	- Tabela responsivel ta ruim, tem que mexer naqueles child (consultar o rar qe ta no desktop)
+	- Ajustar layout dos inputs, ta muito branco
 }
 
 git{
-	Ajustes layout + Arrumado Codigos + Criado o crud de tipo e cor
+
 }
 
-fazendo o editar lista cores e tipos (tamanho)
+
 
 
 

@@ -13,7 +13,7 @@ namespace Intranet.Fittme.DAL
     {
         public static DbConnection site_fittme()
         {
-            var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["fittme2"].ConnectionString);
+            var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["fittme"].ConnectionString);
             connection.Open();
             return connection;
         }
