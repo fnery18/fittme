@@ -1,26 +1,20 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Configuracoes";
+    ViewBag.TituloPagina = "Configurações";
+    ViewBag.SubTituloPagina = "Cadastre,altere e exclua as variavéis como cores, e tamanhos";
 }
 
 @section Styles{
     <link href="~/Content/tabela/table.css" rel="stylesheet" />
 }
 
-<div class="all">
-    <h1>
-        Configurações
-        <small>Cadastre,altere e exclua as variavéis como cores, e tamanhos</small>
-    </h1>
-    <div class="container-table100">
+<div class="container-table100">
+    <div class="wrap-table100">
+        <h2>Cores</h2>
+        <div id="partialCores"></div>
         <div class="wrap-table100">
-            <h2>Cores</h2>
-            <div id="partialCores"></div>
-            <div class="wrap-table100">
-                <h2>Tipos</h2>
-                <div id="partialTipos"></div>
-
-            </div>
+            <h2>Tipos</h2>
+            <div id="partialTipos"> @*TABELA SERA RENDERIZADA AQUI*@ </div>
         </div>
     </div>
 </div>
@@ -30,10 +24,12 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <p class="modal-title" id="modalExcluir">Excluir Cor</p>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <p class="modal-title" id="modalExcluir">
+                    Excluir Cor
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </p>
             </div>
             <div class="modal-body">
                 Você tem certeza que deseja excluir a cor <font id="txtCorNome"></font>?
@@ -52,10 +48,13 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <p class="modal-title" id="modalExcluir">Excluir Tipo</p>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <p class="modal-title" id="modalExcluir">
+                    Excluir Tipo
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </p>
+
             </div>
             <div class="modal-body">
                 Você tem certeza que deseja excluir o tipo <font id="txtTipo"></font>?
@@ -74,10 +73,12 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <p class="modal-title" id="tituloModalCor">Cadastrar Cor</p>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <p class="modal-title" id="tituloModalCor">
+                    Cadastrar Cor
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </p>
             </div>
             <div class="modal-body">
                 <div class="row2">
@@ -99,7 +100,7 @@
                         </a>
                         <input type="color" id="txtCor" class="form-control" />
                     </div>
-                    <input type="hidden" id="txtCodigoCor" value=""/>
+                    <input type="hidden" id="txtCodigoCor" value="" />
                 </div>
 
             </div>
@@ -116,10 +117,12 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <p class="modal-title" id="tituloModalTipo">Cadastrar Tipo</p>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <p class="modal-title" id="tituloModalTipo">
+                    Cadastrar Tipo
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </p>
             </div>
             <div class="modal-body">
                 <div class="row2">

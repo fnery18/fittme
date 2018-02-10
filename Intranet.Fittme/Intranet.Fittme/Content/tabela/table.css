@@ -3,19 +3,31 @@
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/
 
-h2{
+/*input MODAL*/
+.form-control {
+    background-color: #FCFCFC !important;
+    border: 1px solid rgba(0,0,0,0.1) !important;
+}
+
+    .form-control:focus {
+        box-shadow: 0 0 8px rgba(0,0,0,0.4) !important;
+    }
+
+
+h2 {
     text-transform: uppercase;
     letter-spacing: 1px;
     border-left: 5px solid #2c3e50;
     padding: 10px 17px;
-    background-color: rgba(0,0,0,0.1);  
+    background-color: rgba(0,0,0,0.1);
     color: #f1f1f1 !important;
 }
 
-.header:hover .cell{
-    cursor: default; 
-    background-color: #2c3e50 !important;   
+.header:hover .cell {
+    cursor: default;
+    background-color: #2c3e50 !important;
 }
+
 label {
     font-weight: bold;
     letter-spacing: 0.5px;
@@ -146,6 +158,14 @@ iframe {
 @media screen and (max-width: 768px) {
     .table {
         display: block;
+    }
+
+    .container-table100 {
+        background: #2c3e50;
+        background: -webkit-linear-gradient(top, #E81F25, #000);
+        background: -o-linear-gradient(top, #E81F25, #000);
+        background: -moz-linear-gradient(top, #E81F25, #000);
+        background: linear-gradient(top, #E81F25, #000);
     }
 }
 

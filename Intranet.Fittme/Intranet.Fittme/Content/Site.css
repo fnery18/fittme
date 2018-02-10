@@ -30,32 +30,36 @@
 .navbar-inverse .navbar-brand {
     color: #ECF0F1 !important;
 }
-@media (max-width: 767px){
-    .navbar-nav .open .dropdown-menu{
+
+@media (max-width: 767px) {
+    .navbar-nav .open .dropdown-menu {
         background-color: #E81F25 !important;
     }
 }
 
 @media (max-width: 767px) {
     .navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
-           background-color: rgba(0,0,0,0.1);
-           color: #ECF0F1 !important;
+        background-color: rgba(0,0,0,0.1);
+        color: #ECF0F1 !important;
     }
-    .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover {
-        background-color: #ECF0F1 !important;
-        color: #E81F25 !important;
-    }
+
+        .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover {
+            background-color: #ECF0F1 !important;
+            color: #E81F25 !important;
+        }
 }
-.navbar-inverse .navbar-toggle{
+
+.navbar-inverse .navbar-toggle {
     border: none !important;
 }
 
-.navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover span{
-    background-color: #666666 !important;
-}
-.navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover{
-    background-color: unset !important;
-}
+    .navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover span {
+        background-color: #666666 !important;
+    }
+
+    .navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover {
+        background-color: unset !important;
+    }
 
 
 h1 {
@@ -106,7 +110,10 @@ a {
         text-decoration: none;
         color: #E81F25 !important;
     }
-    
+a > i{
+    cursor:pointer;
+}
+
 html {
     width: 100% !important;
     height: 100vh !important;
