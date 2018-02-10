@@ -19,8 +19,8 @@ $('.contact-form').find('.form-control').blur(function () {
     if ($(this).val().length == 0) {
         $(this).parent('.input-block').removeClass('focus');
         $(this).parent().find('label').animate({
-            'top': '25px',
-            'fontSize': '18px'
+            'top': '20px',
+            'fontSize': '14px'
         }, 300);
     }
 })

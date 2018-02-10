@@ -1,9 +1,16 @@
 FITT.ME{
-	- Rever validacoes (pegar o tamanho dos campos no banco, comparar com as data annotations e ver se no front os inputs estao com elas tambem)
 	- Paginaco listar fornecedor
+	- Fazer listagem de produto
+	- Fazer cadastro de cliente
+	- fazer listagem de cliente
+	- fazer cadastro de venda
+	- fazer listagem de venda
+	- fazer cadastro de usuario
+	- fazer listagem de usuario
+	- fazer a homepage (uma dashboard com grafico, quantidade de produtos / vendas etc..)
 	- Refazer tela de cadastro de produto (tem novos precos + cor)
-	- dELETAR Tabela de produtos e criar dnovo
-	- Ajustar layout dos inputs, ta muito branco
+	- Rever validacoes (pegar o tamanho dos campos no banco, comparar com as data annotations e ver se no front os inputs estao com elas tambem)
+	- Separar css, adicionar pastas de indentificacao, colocar region e melhorar codigos
 }
 
 git{
@@ -11,5 +18,5 @@ git{
 }
 
 Fazendo{
-	Arrumando layout do nav (menu)
+
 }
