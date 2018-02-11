@@ -25,5 +25,6 @@ namespace Intranet.Fittme.Models
         [Required]
         public string Senha { get; set; }
         public bool Administrador { get; set; }
+        public string Mensagem { get; set; }
     }
 }

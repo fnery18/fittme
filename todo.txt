@@ -1,5 +1,5 @@
 FITT.ME{
-	- Fazer o form login ser ajax, para retornar a mensagem de usuario ou senha invalidos.
+	- Mover o logout para o AutenticacaoController
 	- Paginaco listar fornecedor
 	- Fazer listagem de produto
 	- Fazer cadastro de cliente

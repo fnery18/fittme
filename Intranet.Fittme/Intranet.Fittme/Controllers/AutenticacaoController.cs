@@ -21,7 +21,7 @@ namespace Intranet.Fittme.Controllers
         public ActionResult Login()
         {
             if (Session["user"] == null)
-                return View("Index");
+                return View("Index", new AutenticacaoModel() { Mensagem = "" });
 
             return RedirectToAction("Index", "Intranet");
 
@@ -42,9 +42,8 @@ namespace Intranet.Fittme.Controllers
                     Session["user"] = usuario.Usuario;
                     return RedirectToAction("Index", "Intranet");
                 }
-
             }
-            return RedirectToAction("Login");
+            return View("Index", new AutenticacaoModel() { Mensagem = "Usuário ou senha inválidos" });
         }
     }
 }

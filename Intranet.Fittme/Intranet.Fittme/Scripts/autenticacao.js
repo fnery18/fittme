@@ -1,8 +1,15 @@
-﻿$(function () {
+﻿var retorno = $('#retorno').val();
+$(function () {
+    $(document).ready(function () {
+        if(retorno){
+            MensagemErroPersonalizada(retorno);
+        }
+    });
     $(document).on("click", "#btnLogin", function (event) {
         event.preventDefault();
         if (validaCampos()) {
             $("#formLogin").submit();
+            habilitaLoading();
         };
     });
 });
