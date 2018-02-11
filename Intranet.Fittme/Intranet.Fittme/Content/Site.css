@@ -3,6 +3,29 @@
     src: url('../fonts/poppins/Poppins-Regular.ttf');
 }
 
+/* slightly enhanced, universal clearfix hack */
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+.clearfix {
+    display: inline-block;
+}
+/* start commented backslash hack \\*/
+* html .clearfix {
+    height: 100%;
+}
+
+.clearfix {
+    display: block;
+}
+/* close commented backslash hack */
+
 .all {
     width: 100%;
     height: 100vh !important;
@@ -110,9 +133,10 @@ a {
         text-decoration: none;
         color: #E81F25 !important;
     }
-a > i{
-    cursor:pointer;
-}
+
+    a > i {
+        cursor: pointer;
+    }
 
 html {
     width: 100% !important;
