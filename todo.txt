@@ -1,5 +1,4 @@
 FITT.ME{
-	- Mover o logout para o AutenticacaoController
 	- Paginaco listar fornecedor
 	- Fazer listagem de produto
 	- Fazer cadastro de cliente
@@ -20,7 +19,7 @@ FITT.ME{
 }
 
 git{
-	
+
 }
 
 Fazendo{

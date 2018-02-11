@@ -45,5 +45,12 @@ namespace Intranet.Fittme.Controllers
             }
             return View("Index", new AutenticacaoModel() { Mensagem = "Usuário ou senha inválidos" });
         }
+
+        [HttpGet]
+        public ActionResult Logout()
+        {
+            Session["user"] = null;
+            return RedirectToAction("Login", "Autenticacao");
+        }
     }
 }

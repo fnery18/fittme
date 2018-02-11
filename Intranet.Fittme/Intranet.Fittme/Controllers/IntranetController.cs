@@ -25,12 +25,6 @@ namespace Intranet.Fittme.Controllers
             return View();
         }
 
-        public ActionResult Logout()
-        {
-            Session["user"] = null;
-            return RedirectToAction("Login", "Autenticacao");
-        }
-
         #region Produtos
         public async Task<ActionResult> Produto()
         {
