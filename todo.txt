@@ -1,5 +1,4 @@
 FITT.ME{
-	- Colocar loading no ajax de carregar configuracoes e cadastro de produto
 	- Fazer o form login ser ajax, para retornar a mensagem de usuario ou senha invalidos.
 	- Paginaco listar fornecedor
 	- Fazer listagem de produto

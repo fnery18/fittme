@@ -141,7 +141,7 @@ iframe {
     justify-content: center;
     flex-wrap: wrap;
     padding: 33px 30px;
-        background-size: 100% !important;
+    background-size: 100% !important;
     background: #E81F25 !important;
     background: -webkit-linear-gradient(bottom, #E81F25, #111) !important;
     background: -o-linear-gradient(bottom, #E81F25, #111) !important;

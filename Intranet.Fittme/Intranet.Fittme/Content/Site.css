@@ -3,28 +3,47 @@
     src: url('../fonts/poppins/Poppins-Regular.ttf');
 }
 
-/* slightly enhanced, universal clearfix hack */
-.clearfix:after {
-    visibility: hidden;
-    display: block;
-    font-size: 0;
-    content: " ";
-    clear: both;
-    height: 0;
+#loading {
+    background-color: rgba(0,0,0,0.0);
+    z-index: 99999999;
+    position: absolute;
+    display: none;
+    text-shadow: 1px 1px 2px #333;
 }
 
-.clearfix {
-    display: inline-block;
-}
-/* start commented backslash hack \\*/
-* html .clearfix {
-    height: 100%;
+.normal-right-spinner {
+    -webkit-animation: glyphicon-spin-r 2s infinite linear;
+    animation: glyphicon-spin-r 2s infinite linear;
+    font-size: 50px;
+    color: #fff;
+    left: 50%;
+    top: 50% !important;
 }
 
-.clearfix {
-    display: block;
+@-webkit-keyframes glyphicon-spin-r {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
 }
-/* close commented backslash hack */
+
+@keyframes glyphicon-spin-r {
+    0% {
+        -webkit-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(359deg);
+        transform: rotate(359deg);
+    }
+}
+
 
 .all {
     width: 100%;
@@ -177,7 +196,7 @@ html {
 
 body {
     width: 100% !important;
-    height: 100% !important;
+    min-height: 100vh !important;
     color: #222 !important;
     background-size: 100% !important;
     background: #E81F25 !important;

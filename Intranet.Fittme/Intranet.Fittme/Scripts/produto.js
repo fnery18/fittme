@@ -22,6 +22,9 @@ $(() => {
                 processData: false,
                 contentType: false,
                 type: 'POST',
+                beforeSend: () => {
+                    habilitaLoading();
+                },
                 success: (data) => {
                     if (data.Sucesso) {
                         MensagemSucesso("Produto cadastrado com sucesso!");
@@ -29,6 +32,9 @@ $(() => {
                     }
                     else
                         MensagemErroPersonalizada(data.Mensagem);
+                },
+                complete: () => {
+                    desabilitaLoading();
                 }
             });
         };

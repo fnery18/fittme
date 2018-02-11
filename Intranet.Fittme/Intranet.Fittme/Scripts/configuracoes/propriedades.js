@@ -163,15 +163,35 @@ function BuscaPropriedades() {
     $('[data-toggle="tooltip"]').tooltip();
 };
 function BuscaCores() {
-    $.get("/Intranet/TabelaCores/", {}, (html) => {
-        $("#partialCores").html(html);
-        $('[data-toggle="tooltip"]').tooltip();
+    $.ajax({
+        url: "/Intranet/TabelaCores/",
+        type: 'GET',
+        beforeSend: () => {
+            habilitaLoading();
+        },
+        success: (tabela) =>{
+            $("#partialCores").html(tabela);
+            $('[data-toggle="tooltip"]').tooltip();
+        },
+        complete: () => {
+            desabilitaLoading();
+        }
     });
 };
 function BuscaTipos() {
-    $.get("/Intranet/TabelaTipos/", {}, (html) => {
-        $("#partialTipos").html(html);
-        $('[data-toggle="tooltip"]').tooltip();
+    $.ajax({
+        url: "/Intranet/TabelaTipos/",
+        type: 'GET',
+        beforeSend: () => {
+            habilitaLoading();
+        },
+        success: (tabela) => {
+            $("#partialTipos").html(tabela);
+            $('[data-toggle="tooltip"]').tooltip();
+        },
+        complete: () => {
+            desabilitaLoading();
+        }
     });
 };
 
