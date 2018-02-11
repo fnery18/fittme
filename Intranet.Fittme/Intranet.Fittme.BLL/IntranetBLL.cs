@@ -14,6 +14,7 @@ namespace Intranet.Fittme.BLL
 {
     public class IntranetBLL : IIntranetBLL
     {
+        private string caminhoProdutos = HostingEnvironment.MapPath("~/Content/Images/Produtos");
         private IIntranetDAL _intranetDAL;
         public IntranetBLL(IIntranetDAL intranetDAL)
         {
@@ -54,6 +55,13 @@ namespace Intranet.Fittme.BLL
             produto.CodigoProduto = string.Format("{0}-{1}-{2}", produto.CodigoProduto, cor, tamanho);
             produto.NomeArquivo = UploadImagem(produto.Imagem);
         }
+
+        public async Task<List<ProdutoMOD>> BuscaProdutos()
+        {
+            var produtos = await _intranetDAL.BuscaProdutos();
+
+            return produtos;
+        }
         #endregion
 
         #region Configuracoes
@@ -93,9 +101,8 @@ namespace Intranet.Fittme.BLL
         #region Funções
         private string UploadImagem(HttpPostedFileBase imagem)
         {
-            var caminho = HostingEnvironment.MapPath("~/Content/Images/Produtos");
             string nomeArquivo = Guid.NewGuid().ToString() + Path.GetExtension(imagem.FileName);
-            string caminhoArquivo = Path.Combine(caminho, nomeArquivo);
+            string caminhoArquivo = Path.Combine(caminhoProdutos, nomeArquivo);
 
             imagem.SaveAs(caminhoArquivo);
 

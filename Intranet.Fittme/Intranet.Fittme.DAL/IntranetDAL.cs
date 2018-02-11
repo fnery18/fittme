@@ -107,6 +107,21 @@ namespace Intranet.Fittme.DAL
                 return (await connection.ExecuteAsync(query, produto));
             }
         }
+        public async Task<List<ProdutoMOD>> BuscaProdutos()
+        {
+            using (var connection = ConnectionFactory.site_fittme())
+            {
+                var query = @"
+                                SELECT 
+                                    Codigo,CodigoProdutoFornecedor,CodigoProduto,CodigoCor,
+                                    Nome,CodigoTipo,Imagem AS 'NomeArquivo',CodigoFornecedor,
+                                    PrecoCusto,PrecoNota,PrecoVenda,Quantidade 
+                                FROM 
+                                    Produtos";
+
+                return (await connection.QueryAsync<ProdutoMOD>(query)).ToList();
+            }
+        }
         #endregion
 
         #region Configuracoes

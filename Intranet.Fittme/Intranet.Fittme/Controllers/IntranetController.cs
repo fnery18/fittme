@@ -31,10 +31,14 @@ namespace Intranet.Fittme.Controllers
             PropriedadesModel model = new PropriedadesModel((await _intranetBLL.BuscaPropriedades()));
             return View("Produtos/Cadastrar", model);
         }
-        public ActionResult ListarProdutos()
+        public async Task<ActionResult> ListarProdutos()
         {
-            return View("Produtos/Listar");
+            var produtos = (await _intranetBLL.BuscaProdutos())
+                                                .Select(c => new ProdutoModel(c))
+                                                .ToList();
+            return View("Produtos/Listar", produtos);
         }
+
         [HttpPost]
         public async Task<JsonResult> CadastraProduto(ProdutoModel model)
         {

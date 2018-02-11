@@ -52,6 +52,7 @@ namespace Intranet.Fittme.Models
             Nome = produto.Nome;
             CodigoTipo = produto.CodigoTipo;
             Imagem = produto.Imagem;
+            NomeArquivo = produto.NomeArquivo;
             CodigoFornecedor = produto.CodigoFornecedor;
             PrecoCusto = produto.PrecoCusto;
             PrecoNota = produto.PrecoNota;
