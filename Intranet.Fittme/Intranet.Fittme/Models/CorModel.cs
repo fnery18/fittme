@@ -10,7 +10,7 @@ namespace Intranet.Fittme.Models
     {
         public int Codigo { get; set; }
         public string Nome { get; set; }
-        public string Codigo_Cor { get; set; }
+        public string CodigoCor { get; set; }
         public string Cor { get; set; }
         public CorModel()
         {
@@ -20,7 +20,7 @@ namespace Intranet.Fittme.Models
         {
             Codigo = cor.Codigo;
             Nome = cor.Nome;
-            Codigo_Cor = cor.Codigo_Cor;
+            CodigoCor = cor.CodigoCor;
             Cor = cor.Cor;
         }
     }

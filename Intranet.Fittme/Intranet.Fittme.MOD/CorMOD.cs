@@ -10,7 +10,7 @@ namespace Intranet.Fittme.MOD
     {
         public int Codigo { get; set; }
         public string Nome { get; set; }
-        public string Codigo_Cor { get; set; }
+        public string CodigoCor { get; set; }
         public string Cor { get; set; }
     }
 }

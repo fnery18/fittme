@@ -37,7 +37,7 @@ namespace Intranet.Fittme.Controllers
             PropriedadesModel model = new PropriedadesModel((await _intranetBLL.BuscaPropriedades()));
             return View("Produtos/Cadastrar", model);
         }
-        public async Task<ActionResult> ListarProdutos()
+        public ActionResult ListarProdutos()
         {
             return View("Produtos/Listar");
         }
@@ -50,13 +50,17 @@ namespace Intranet.Fittme.Controllers
                 {
                     ProdutoMOD produto = new ProdutoMOD()
                     {
-                        Codigo_Fornecedor = model.Codigo_Fornecedor,
-                        Codigo_Produto = model.Codigo_Produto,
+                        CodigoFornecedor = model.CodigoFornecedor,
+                        CodigoProdutoFornecedor = model.CodigoProdutoFornecedor,
+                        CodigoProduto = model.CodigoProduto,
                         Imagem = model.Imagem,
                         Quantidade = model.Quantidade,
-                        Codigo_Tipo = model.Codigo_Tipo,
+                        CodigoTipo = model.CodigoTipo,
                         Nome = model.Nome,
-                        Preco = model.Preco
+                        PrecoCusto = model.PrecoCusto,
+                        PrecoNota = model.PrecoNota,
+                        PrecoVenda = model.PrecoVenda,
+                        CodigoCor = model.CodigoCor
                     };
 
                     var cadastrou = await _intranetBLL.CadastraProduto(produto);
@@ -262,7 +266,7 @@ namespace Intranet.Fittme.Controllers
                 {
                     Nome = model.Nome,
                     Codigo = model.Codigo,
-                    Codigo_Cor = model.Codigo_Cor,
+                    CodigoCor = model.CodigoCor,
                     Cor = model.Cor
                 };
                 bool excluio = await _intranetBLL.CadastraCor(cor);
@@ -283,7 +287,7 @@ namespace Intranet.Fittme.Controllers
                 {
                     Nome = model.Nome,
                     Codigo = model.Codigo,
-                    Codigo_Cor = model.Codigo_Cor,
+                    CodigoCor = model.CodigoCor,
                     Cor = model.Cor
                 };
                 bool alterou = await _intranetBLL.AlteraCor(cor);
@@ -304,7 +308,7 @@ namespace Intranet.Fittme.Controllers
                 {
                     Nome = model.Nome,
                     Codigo = model.Codigo,
-                    Codigo_Cor = model.Codigo_Cor,
+                    CodigoCor = model.CodigoCor,
                     Cor = model.Cor
                 };
                 bool excluio = await _intranetBLL.ExcluiCor(cor);

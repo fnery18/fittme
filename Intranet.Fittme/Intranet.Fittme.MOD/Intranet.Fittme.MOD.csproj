@@ -41,7 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ArquivoMOD.cs" />
     <Compile Include="AutenticacaoMOD.cs" />
     <Compile Include="CorMOD.cs" />
     <Compile Include="FornecedorMOD.cs" />

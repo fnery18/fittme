@@ -18,7 +18,7 @@ namespace Intranet.Fittme.Controllers
             _autenticacaoBLL = autenticacaoBLL;
         }
         // GET: Autenticacao
-        public async Task<ActionResult> Login()
+        public ActionResult Login()
         {
             if (Session["user"] == null)
                 return View("Index");

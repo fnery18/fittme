@@ -5,12 +5,16 @@ $(() => {
     $(document).on("click", "#btnCadastrar", (event) => {
         event.preventDefault();
         if (ValidaCampos()) {
-            form.append('Codigo_Produto', $('#txtCodigo').val());
-            form.append('Nome', $('#txtNome').val());
+            form.append('CodigoProduto', $('#txtCodigo').val());
+            form.append('CodigoProdutoFornecedor', $('#txtCodigoFornecedor').val());
             form.append('Quantidade', $('#txtQuantidade').val());
-            form.append('Codigo_Tipo', $('#selectTipo option:selected').val());
-            form.append('Codigo_Fornecedor', $('#selectFornecedor option:selected').val());
-            form.append('Preco', $('#txtPreco').val());
+            form.append('CodigoTipo', $('#selectTipo option:selected').val());
+            form.append('CodigoFornecedor', $('#selectFornecedor option:selected').val());
+            form.append('CodigoCor', $('#selectCor option:selected').val());
+            form.append('Nome', $('#txtNome').val());
+            form.append('PrecoCusto', $('#txtPrecoCusto').val());
+            form.append('PrecoNota', $('#txtPrecoNota').val());
+            form.append('PrecoVenda', $('#txtPrecoVenda').val());
 
             $.ajax({
                 url: '/Intranet/CadastraProduto/', // Url do lado server que vai receber o arquivo
@@ -19,9 +23,11 @@ $(() => {
                 contentType: false,
                 type: 'POST',
                 success: (data) => {
-                    if (data.Sucesso)
+                    if (data.Sucesso) {
                         MensagemSucesso("Produto cadastrado com sucesso!");
-                    else 
+                        limpaCampos();
+                    }
+                    else
                         MensagemErroPersonalizada(data.Mensagem);
                 }
             });
@@ -31,12 +37,13 @@ $(() => {
     $('#fileProduto').change(function (event) {
 
         form = new FormData();
-        form.append('Imagem', event.target.files[0]);   
+        form.append('Imagem', event.target.files[0]);
         if (event.target.files[0].type.includes("image")) {
             form = new FormData();
             form.append('Imagem', event.target.files[0]);
         } else {
             MensagemErroPersonalizada("Por favor selecione uma imagem");
+            $('#fileProduto').val("");
             $('#fileProduto').focus();
         };
     });
@@ -55,20 +62,28 @@ function CarregaImagem() {
 
 function ValidaCampos() {
     var codigo = $('#txtCodigo');
+    var codigoFornecedor = $('#txtCodigoFornecedor');
     var nome = $('#txtNome');
+    var codigoCor = $('#selectCor option:selected');
     var tipo = $('#selectTipo option:selected');
     var fornecedor = $('#selectFornecedor option:selected');
     var imagem = $('#fileProduto');
-    var preco = $('#txtPreco');
+    var precoVenda = $('#txtPrecoVenda');
+    var precoCusto = $('#txtPrecoCusto');
+    var precoNota = $('#txtPrecoNota');
     var quantidade = $('#txtQuantidade');
 
     if (codigo.val().length <= 0) {
         MensagemErroPersonalizada("Por favor digite o código do produto");
         codigo.focus();
         return false;
-    } else if (nome.val().length <= 0) {
-        MensagemErroPersonalizada("Por favor digite o nome do produto");
-        nome.focus();
+    } else if (codigoFornecedor.val().length <= 0) {
+        MensagemErroPersonalizada("Por favor digite o codigo do produto do fornecedor");
+        codigoFornecedor.focus();
+        return false;
+    } else if (quantidade.val().length <= 0) {
+        MensagemErroPersonalizada("Por favor digite a quantidade do produto");
+        quantidade.focus();
         return false;
     } else if (tipo.index() <= 0) {
         MensagemErroPersonalizada("Por favor selecione um tipo");
@@ -78,18 +93,41 @@ function ValidaCampos() {
         MensagemErroPersonalizada("Por favor selecione um fornecedor");
         $('#selectFornecedor').focus();
         return false;
+    } else if (codigoCor.index() <= 0) {
+        MensagemErroPersonalizada("Por favor selecione uma cor");
+        $('#selectCor').focus();
+        return false;
+    } else if (nome.val().length <= 0) {
+        MensagemErroPersonalizada("Por favor digite o nome do produto");
+        nome.focus();
+        return false;
+    } else if (imagem[0].files[0] === undefined) {
+        MensagemErroPersonalizada("Por favor selecione uma imagem");
+        imagem.focus();
+        return false;
     } else if (imagem[0].files[0].length <= 0) {
         MensagemErroPersonalizada("Por favor selecione uma imagem válida");
         imagem.focus();
         return false;
-    } else if (preco.val().length <= 0) {
-        MensagemErroPersonalizada("Por favor digite o preço do produto");
-        preco.focus();
+    } else if (precoCusto.val().length <= 0) {
+        MensagemErroPersonalizada("Por favor digite o preço de custo");
+        precoCusto.focus();
         return false;
-    } else if (quantidade.val().length <= 0) {
-        MensagemErroPersonalizada("Por favor digite a quantidade do produto");
-        quantidade.focus();
+    } else if (precoNota.val().length <= 0) {
+        MensagemErroPersonalizada("Por favor digite o preço de nota");
+        precoNota.focus();
+        return false;
+    } else if (precoVenda.val().length <= 0) {
+        MensagemErroPersonalizada("Por favor digite o preço de venda");
+        precoVenda.focus();
         return false;
     }
     return true;
+}
+
+
+function limpaCampos() {
+    $(`#btnLimparCampos`).trigger("click");
+    $('#fileProduto').val("");
+    $('#imgProduto').hide();
 }

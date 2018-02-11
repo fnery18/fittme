@@ -12,16 +12,23 @@
     <form action="" class="contact-form" enctype="multipart/form-data">
         <div class="col-sm-6">
             <div class="input-block">
-                <label for=""><i class="glyphicon glyphicon-barcode"></i> Codigo</label>
+                <label for=""><i class="glyphicon glyphicon-barcode"></i> Codigo FITTME</label>
                 <input type="text" id="txtCodigo" maxlength="20" required class="form-control">
             </div>
         </div>
         <div class="col-sm-6">
             <div class="input-block">
-                <label for=""><i class="glyphicon glyphicon-user"></i> Nome</label>
-                <input type="text" id="txtNome" maxlength="100" required class="form-control">
+                <label for=""><i class="glyphicon glyphicon-barcode"></i> Codigo do produto no fornecedor</label>
+                <input type="text" id="txtCodigoFornecedor" maxlength="20" required class="form-control">
             </div>
         </div>
+        <div class="col-sm-6">
+            <div class="input-block">
+                <label for=""><i class="glyphicon glyphicon-asterisk"></i> Quantidade</label>
+                <input type="text" id="txtQuantidade" maxlength="3" class="form-control">
+            </div>
+        </div>
+
         <div class="col-sm-6">
             <div class="input-block">
                 <label for=""><i class="glyphicon glyphicon-tags"></i> Tipo</label>
@@ -46,6 +53,27 @@
                 </select>
             </div>
         </div>
+        <div class="col-sm-6">
+            <div class="input-block">
+                <label for=""><i class="glyphicon glyphicon-shopping-cart"></i> Cor</label>
+                <select id="selectCor" class="form-control">
+                    <option>Escolha um..</option>
+                    @foreach (var item in Model.Cores)
+                    {
+                        <option value="@item.Codigo">@item.Nome</option>
+                    }
+                </select>
+            </div>
+        </div>
+
+
+        <div class="col-sm-12">
+            <div class="input-block">
+                <label for=""><i class="glyphicon glyphicon-user"></i> Nome</label>
+                <input type="text" id="txtNome" maxlength="100" required class="form-control">
+            </div>
+        </div>
+
         <div class="col-md-6">
             <div class="input-block" style="height: 150px;">
                 <div>
@@ -63,22 +91,29 @@
             </div>
         </div>
 
-        <div class="col-sm-6">
+        <div class="col-sm-4">
             <div class="input-block">
-                <label for=""><i class="glyphicon glyphicon-usd"></i> Preço</label>
-                <input type="text" id="txtPreco" maxlength="6" class="form-control">
+                <label for=""><i class="glyphicon glyphicon-usd"></i> Preço de custo</label>
+                <input type="text" id="txtPrecoCusto" maxlength="6" class="form-control">
             </div>
         </div>
-        <div class="col-sm-6">
+        <div class="col-sm-4">
             <div class="input-block">
-                <label for=""><i class="glyphicon glyphicon-asterisk"></i> Quantidade</label>
-                <input type="text" id="txtQuantidade" maxlength="3" class="form-control">
+                <label for=""><i class="glyphicon glyphicon-usd"></i> Preço de nota</label>
+                <input type="text" id="txtPrecoNota" maxlength="6" class="form-control">
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="input-block">
+                <label for=""><i class="glyphicon glyphicon-usd"></i> Preço de venda</label>
+                <input type="text" id="txtPrecoVenda" maxlength="6" class="form-control">
             </div>
         </div>
 
         <div class="col-sm-12" style="margin-bottom: 10px;">
             <button class="square-button" id="btnCadastrar"><font>Cadastrar</font></button>
         </div>
+        <input type="reset" id="btnLimparCampos" style="display: none;"/>
     </form>
 </section>
 

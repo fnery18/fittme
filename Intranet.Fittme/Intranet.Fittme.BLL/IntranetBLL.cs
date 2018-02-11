@@ -42,9 +42,17 @@ namespace Intranet.Fittme.BLL
         #region Produto
         public async Task<bool> CadastraProduto(ProdutoMOD produto)
         {
-            var caminho = UploadImagem(produto.Imagem);
+            FormataAtributos(ref produto);
+            
+            return await _intranetDAL.CadastraProduto(produto) > 0;
+        }
 
-            return await _intranetDAL.CadastraProduto(produto, caminho) > 0;
+        private void FormataAtributos(ref ProdutoMOD produto)
+        {
+            var cor = _intranetDAL.BuscaCodigoCor(produto.CodigoCor);
+            var tamanho = _intranetDAL.BuscaTipo(produto.CodigoTipo);
+            produto.CodigoProduto = string.Format("{0}-{1}-{2}", produto.CodigoProduto, cor, tamanho);
+            produto.NomeArquivo = UploadImagem(produto.Imagem);
         }
         #endregion
 
@@ -86,11 +94,12 @@ namespace Intranet.Fittme.BLL
         private string UploadImagem(HttpPostedFileBase imagem)
         {
             var caminho = HostingEnvironment.MapPath("~/Content/Images/Produtos");
-            string caminhoArquivo = Path.Combine(caminho, Path.GetFileName(imagem.FileName));
+            string nomeArquivo = Guid.NewGuid().ToString() + Path.GetExtension(imagem.FileName);
+            string caminhoArquivo = Path.Combine(caminho, nomeArquivo);
 
             imagem.SaveAs(caminhoArquivo);
 
-            return imagem.FileName;
+            return nomeArquivo;
         }
         #endregion
 

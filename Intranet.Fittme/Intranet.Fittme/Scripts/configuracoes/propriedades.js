@@ -6,7 +6,7 @@
         },
         "Editar": {
             "Form": $("#modalEditarCor"),
-            "Codigo": $("#txtCodigoCor")
+            "Codigo": $("#txtCodigoCor_")
         },
         "TituloEditar": $("#tituloModalCor"),
         "TituloExcluir": $("#txtCorNome")
@@ -47,7 +47,7 @@ $(function () {
         let parametros = {
             "Nome": $("#txtNomeCor").val(),
             "Codigo": 0,
-            "Codigo_Cor": $("#txtCodigo_Cor").val(),
+            "CodigoCor": $("#txtCodigoCor").val(),
             "Cor" : $("#txtCor").val()
         }
 
@@ -81,7 +81,7 @@ $(function () {
     $(document).on("click", "a[data-opcao='editarCor']", function () {
         modais.Cor.TituloEditar.text("Editar Tipo");
         $("#txtNomeCor").val($(this).data("nome"));
-        $("#txtCodigo_Cor").val($(this).data("codigocor"));
+        $("#txtCodigoCor").val($(this).data("codigocor"));
         $("#txtCor").val($(this).data("cor"));
         modais.Cor.Editar.Codigo.val($(this).data("codigo"));
         modais.Cor.Editar.Form.modal();
@@ -91,7 +91,7 @@ $(function () {
     $(document).on("click", "a[data-opcao='cadastrarCor']", function () {
         modais.Cor.TituloEditar.text("Cadastrar Cor");
         $("#txtNomeCor").val("");
-        $("#txtCodigo_Cor").val("");
+        $("#txtCodigoCor").val("");
         $("#txtCor").val("");
         modais.Cor.Editar.Codigo.val("");
         modais.Cor.Editar.Form.modal();
@@ -188,7 +188,7 @@ function validaTipos() {
 
 function validaCores() {
     let nome = $("#txtNomeCor");
-    let codigoCor = $("#txtCodigo_Cor");
+    let codigoCor = $("#txtCodigoCor");
     let cor = $("#txtCor");
     if (nome.val() == "") {
         MensagemErroPersonalizada("Por favor digite o nome");

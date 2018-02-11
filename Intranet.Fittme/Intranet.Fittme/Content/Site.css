@@ -116,14 +116,7 @@ a > i{
 
 html {
     width: 100% !important;
-    height: 100vh !important;
-    background-size: 100% !important;
-    background: #E81F25 !important;
-    background: -webkit-linear-gradient(bottom, #E81F25, #111) !important;
-    background: -o-linear-gradient(bottom, #E81F25, #111) !important;
-    background: -moz-linear-gradient(bottom, #E81F25, #111) !important;
-    background: linear-gradient(bottom, #E81F25, #111) !important;
-    background-repeat: no-repeat !important;
+    height: auto !important;
 }
 
 .img-logo {

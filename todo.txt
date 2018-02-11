@@ -1,20 +1,28 @@
 FITT.ME{
+	- Arrumar layout tabela listar configuracoes (ta com o fundo branco)
+	- Colocar loading no ajax de carregar configuracoes e cadastro de produto
+	- Fazer o form login ser ajax, para retornar a mensagem de usuario ou senha invalidos.
 	- Paginaco listar fornecedor
 	- Fazer listagem de produto
 	- Fazer cadastro de cliente
 	- fazer listagem de cliente
 	- fazer cadastro de venda
 	- fazer listagem de venda
+	- Adicionar email no usuario
 	- fazer cadastro de usuario
 	- fazer listagem de usuario
+	- Fazer o esqueceu a senha (enviar email)
+	- Validar antes de cadastrar alguma coisa se ja existe (exemplo cadastrar fornecedor A, se for tentar cadastrar outro chamado A nao deixar)
+	- Adicionar lightbox no preview da imagem do cadastro de produto e na listagem
 	- fazer a homepage (uma dashboard com grafico, quantidade de produtos / vendas etc..)
-	- Refazer tela de cadastro de produto (tem novos precos + cor)
 	- Rever validacoes (pegar o tamanho dos campos no banco, comparar com as data annotations e ver se no front os inputs estao com elas tambem)
 	- Separar css, adicionar pastas de indentificacao, colocar region e melhorar codigos
+	- Criar bundle pros scripts
+	- Funcoes javascript comecam com minuscula, alterar.
 }
 
 git{
-
+	
 }
 
 Fazendo{

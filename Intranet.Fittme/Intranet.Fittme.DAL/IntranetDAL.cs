@@ -88,29 +88,23 @@ namespace Intranet.Fittme.DAL
         #endregion
 
         #region Produto
-        public async Task<int> CadastraProduto(ProdutoMOD produto, string caminho)
+        public async Task<int> CadastraProduto(ProdutoMOD produto)
         {
             using (var connection = ConnectionFactory.site_fittme())
             {
                 var query = @"
                             INSERT INTO 
-                                Produtos (Codigo_Produto, Nome, 
-                                            Codigo_Tipo, Imagem, Codigo_Fornecedor, Preco, Quantidade)
-                            VALUES 
-                                (@Codigo_Produto, @Nome, @Codigo_Tipo, 
-                                    @caminho, @Codigo_Fornecedor, @Preco, @Quantidade)";
+                                Produtos (CodigoProdutoFornecedor,CodigoProduto,
+                                            CodigoCor,Nome,CodigoTipo,Imagem,
+                                            CodigoFornecedor,PrecoCusto,PrecoNota,
+                                            PrecoVenda,Quantidade)
 
-                return (await connection.ExecuteAsync(query, new
-                {
-                    Codigo_Produto = produto.Codigo_Produto,
-                    caminho = caminho,
-                    Nome = produto.Nome,
-                    Codigo_Tipo = produto.Codigo_Tipo,
-                    Codigo_Fornecedor = produto.Codigo_Fornecedor,
-                    Preco = produto.Preco,
-                    Quantidade = produto.Quantidade
-                }));
+                            VALUES (@CodigoProdutoFornecedor,@CodigoProduto,
+                                        @CodigoCor,@Nome,@CodigoTipo,@NomeArquivo,
+                                        @CodigoFornecedor,@PrecoCusto,@PrecoNota,
+                                        @PrecoVenda,@Quantidade)";
 
+                return (await connection.ExecuteAsync(query, produto));
             }
         }
         #endregion
@@ -137,14 +131,14 @@ namespace Intranet.Fittme.DAL
             {
                 var query = @"
                             INSERT INTO 
-                                Cores (Nome, Codigo_Cor, Cor) 
+                                Cores (Nome, CodigoCor, Cor) 
                             VALUES  
                                 (@Nome, @CodigoCor, @Cor)";
 
                 return await connection.ExecuteAsync(query, new
                 {
                     Nome = cor.Nome,
-                    CodigoCor = cor.Codigo_Cor,
+                    CodigoCor = cor.CodigoCor,
                     Cor = cor.Cor
                 });
             }
@@ -157,14 +151,14 @@ namespace Intranet.Fittme.DAL
                             UPDATE 
                                 Cores 
                             SET 
-                                Nome = @Nome, Codigo_Cor = @Codigo_Cor, Cor = @Cor 
+                                Nome = @Nome, CodigoCor = @CodigoCor, Cor = @Cor 
                             WHERE 
                                 Codigo = @Codigo";
 
                 return await connection.ExecuteAsync(query, new
                 {
                     Nome = cor.Nome,
-                    Codigo_Cor = cor.Codigo_Cor,
+                    CodigoCor = cor.CodigoCor,
                     Cor = cor.Cor,
                     Codigo = cor.Codigo
                 });
@@ -181,6 +175,14 @@ namespace Intranet.Fittme.DAL
                                 Codigo = @codigo";
 
                 return await connection.ExecuteAsync(query, new { codigo });
+            }
+        }
+        public string BuscaCodigoCor(int codigoCor)
+        {
+            using (var connection = ConnectionFactory.site_fittme())
+            {
+                var query = @"SELECT CodigoCor FROM Cores WHERE Codigo = @codigoCor";
+                return connection.QueryFirstOrDefault<string>(query, new { codigoCor });
             }
         }
 
@@ -223,6 +225,15 @@ namespace Intranet.Fittme.DAL
                                 Codigo = @codigo";
 
                 return await connection.ExecuteAsync(query, new { codigo });
+            }
+        }
+
+        public string BuscaTipo(int codigo)
+        {
+            using (var connection = ConnectionFactory.site_fittme())
+            {
+                var query = @"SELECT Nome FROM Tipos WHERE Codigo = @codigo";
+                return connection.QueryFirstOrDefault<string>(query, new { codigo });
             }
         }
         #endregion

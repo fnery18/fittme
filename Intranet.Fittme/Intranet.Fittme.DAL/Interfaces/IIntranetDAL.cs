@@ -17,7 +17,7 @@ namespace Intranet.Fittme.DAL.Interfaces
         #endregion
 
         #region Produto
-        Task<int> CadastraProduto(ProdutoMOD produto, string caminho);
+        Task<int> CadastraProduto(ProdutoMOD produto);
         #endregion
 
         #region Configuracoes
@@ -26,10 +26,12 @@ namespace Intranet.Fittme.DAL.Interfaces
         Task<int> AlteraTipo(TipoMOD tipo);
         Task<int> CadastraTipo(TipoMOD tipo);
         Task<int> ExcluiTipo(int codigo);
+        string BuscaTipo(int codigoTipo);
         //Cor
         Task<int> AlteraCor(CorMOD cor);
         Task<int> CadastraCor(CorMOD cor);
         Task<int> ExcluiCor(int codigo);
+        string BuscaCodigoCor(int codigoCor);
         #endregion
     }
 }

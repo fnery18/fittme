@@ -9,15 +9,18 @@ namespace Intranet.Fittme.MOD
 {
     public class ProdutoMOD
     {
-        public int Codigo { get; set; } // cod linha banco
-        public string Codigo_Produto { get; set; } // hash do produto 
+        public int Codigo { get; set; } // codigo no banco
+        public string CodigoProdutoFornecedor { get; set; } // codigo do produto no fornecedor
+        public string CodigoProduto { get; set; } //codigo fittme
+        public int CodigoCor { get; set; }
         public string Nome { get; set; }
+        public int CodigoTipo { get; set; }
+        public HttpPostedFileBase Imagem { get; set; }
+        public string NomeArquivo { get; set; }
+        public int CodigoFornecedor { get; set; }
+        public decimal PrecoCusto { get; set; }
+        public decimal PrecoNota { get; set; }
+        public decimal PrecoVenda { get; set; }
         public int Quantidade { get; set; }
-        public int Codigo_Tipo { get; set; } // TAMANHO / NUMERACAO PMG ETC
-        public HttpPostedFileBase Imagem { get; set; } // URL
-        public int Codigo_Fornecedor{ get; set; }
-        public bool Estoque { get;set; }
-        public decimal Preco { get; set; }
-
     }
 }
