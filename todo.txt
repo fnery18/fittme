@@ -8,6 +8,8 @@ FITT.ME{
 	- Adicionar email no usuario
 	- fazer cadastro de usuario
 	- fazer listagem de usuario
+	- fazer adicionar filtros nas listagem
+	- fazer filtros funcionarem
 	- Fazer o esqueceu a senha (enviar email)
 	- Validar antes de cadastrar alguma coisa se ja existe (exemplo cadastrar fornecedor A, se for tentar cadastrar outro chamado A nao deixar)
 	- Adicionar lightbox no preview da imagem do cadastro de produto e na listagem
@@ -23,5 +25,5 @@ git{
 }
 
 Fazendo{
-	Tela de filtro dos produtos
+
 }
