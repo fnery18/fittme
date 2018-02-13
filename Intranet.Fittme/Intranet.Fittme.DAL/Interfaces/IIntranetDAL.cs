@@ -18,7 +18,7 @@ namespace Intranet.Fittme.DAL.Interfaces
 
         #region Produto
         Task<int> CadastraProduto(ProdutoMOD produto);
-        Task<List<ProdutoMOD>> BuscaProdutos();
+        Task<List<ProdutoViewMOD>> BuscaProdutos();
         #endregion
 
         #region Configuracoes

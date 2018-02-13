@@ -28,6 +28,7 @@
 
 #produtos {
     margin-left: 150px;
+    font-family: Poppins-Regular;
 }
 
 
@@ -263,6 +264,12 @@ div.colors div {
 
 div.c-blue span {
     background: #6e8cd5;
+}
+
+div.genericColor span {
+    width: 14px;
+    height: 14px;
+    border: 1px solid #e8e9eb;
 }
 
 div.c-red span {

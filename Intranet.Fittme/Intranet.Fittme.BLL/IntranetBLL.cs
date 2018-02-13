@@ -56,7 +56,7 @@ namespace Intranet.Fittme.BLL
             produto.NomeArquivo = UploadImagem(produto.Imagem);
         }
 
-        public async Task<List<ProdutoMOD>> BuscaProdutos()
+        public async Task<List<ProdutoViewMOD>> BuscaProdutos()
         {
             var produtos = await _intranetDAL.BuscaProdutos();
 

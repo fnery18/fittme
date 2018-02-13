@@ -45,6 +45,7 @@
     <Compile Include="CorMOD.cs" />
     <Compile Include="FornecedorMOD.cs" />
     <Compile Include="ProdutoMOD.cs" />
+    <Compile Include="ProdutoViewMOD.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PropriedadesMOD.cs" />
     <Compile Include="TipoMOD.cs" />

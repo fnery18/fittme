@@ -34,7 +34,7 @@ namespace Intranet.Fittme.Controllers
         public async Task<ActionResult> ListarProdutos()
         {
             var produtos = (await _intranetBLL.BuscaProdutos())
-                                                .Select(c => new ProdutoModel(c))
+                                                .Select(c => new ProdutoViewModel(c))
                                                 .ToList();
             return View("Produtos/Listar", produtos);
         }

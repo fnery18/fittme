@@ -107,19 +107,32 @@ namespace Intranet.Fittme.DAL
                 return (await connection.ExecuteAsync(query, produto));
             }
         }
-        public async Task<List<ProdutoMOD>> BuscaProdutos()
+        public async Task<List<ProdutoViewMOD>> BuscaProdutos()
         {
             using (var connection = ConnectionFactory.site_fittme())
             {
                 var query = @"
-                                SELECT 
-                                    Codigo,CodigoProdutoFornecedor,CodigoProduto,CodigoCor,
-                                    Nome,CodigoTipo,Imagem AS 'NomeArquivo',CodigoFornecedor,
-                                    PrecoCusto,PrecoNota,PrecoVenda,Quantidade 
+                               SELECT
+	                                forn.Nome as Fornecedor, prod.CodigoProduto, prod.CodigoProdutoFornecedor, prod.Nome, 
+	                                prod.Quantidade, CASE WHEN prod.Quantidade > 0 THEN 1 ELSE 0 END as EmEstoque,
+	                                tam.Nome as Tamanho, prod.Imagem as NomeArquivo, prod.PrecoCusto, 
+	                                prod.PrecoNota, prod.PrecoVenda, cor.Nome as Cor, cor.Cor as CorHexadecimal
                                 FROM 
-                                    Produtos";
+	                                Produtos as prod
+                                JOIN 
+	                                Fornecedores as forn
+                                ON 
+	                                prod.CodigoFornecedor = forn.Codigo
+                                JOIN
+	                                Cores as cor
+                                ON
+	                                prod.CodigoCor = cor.Codigo
+                                JOIN 
+	                                Tipos as tam
+                                ON 
+	                                prod.CodigoTipo = tam.Codigo";
 
-                return (await connection.QueryAsync<ProdutoMOD>(query)).ToList();
+                return (await connection.QueryAsync<ProdutoViewMOD>(query)).ToList();
             }
         }
         #endregion
