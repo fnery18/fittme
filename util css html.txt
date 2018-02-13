@@ -53,10 +53,12 @@ gradient background:
   
   vermelho do logo:
   #E81F25
+  rgba(232, 31, 37, 0.7)
   branco:
   #ECF0F1
   preto:
   #222 ou #111
   SteelBlue:
   #2C3E50
+  rgba(44, 62, 80, 0.7)
 

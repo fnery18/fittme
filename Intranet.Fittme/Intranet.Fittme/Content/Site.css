@@ -11,6 +11,75 @@
     text-shadow: 1px 1px 2px #333;
 }
 
+/*FILTROS*/
+.filtro {
+    font-family: Poppins-Regular;
+    border-left: 5px solid rgba(44, 62, 80, 0.7);
+    display: none;
+}
+
+.tituloFiltro {
+    text-align: left;
+    padding: 10px;
+    font-family: Poppins-Regular;
+    font-size: 30px;
+    color: #ECF0F1;
+    cursor: pointer;
+}
+
+    .tituloFiltro i {
+        font-size: 20px;
+        transition: all 1s ease-in;
+    }
+
+.tipoFiltro {
+    text-transform: uppercase;
+    color: #ECF0F1;
+    border-bottom: 2px solid rgba(44, 62, 80, 0.4);
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+.selectFiltro{
+
+}
+.buttonFiltro {
+    overflow: visible;
+    position: relative;
+    border: 0;
+    padding: 10px;
+    cursor: pointer;
+    height: 40px;
+    width: auto;
+    font-family: Poppins-Regular;
+    color: #fff;
+    text-transform: uppercase;
+    background: #2C3E50;
+    -moz-border-radius: 0 3px 3px 0;
+    -webkit-border-radius: 0 3px 3px 0;
+    border-radius: 3px;
+    text-shadow: 0 -1px 0 rgba(0, 0,0, .3);
+}
+
+.buttonFiltro:hover{
+    color: #ccc;
+}
+
+.inputFiltro, .selectFiltro {
+    background-color: rgba(0,0,0,0.4);
+    width: 100%;
+    border: none;
+    padding: 5px;
+    color: #ECF0F1;
+    max-width: unset !important;
+}
+
+    .inputFiltro:focus, .selectFiltro {
+        outline: 1px solid rgba(44, 62, 80, 0.4);
+    }
+
+/*FIM FILTRO*/
+
 .normal-right-spinner {
     -webkit-animation: glyphicon-spin-r 2s infinite linear;
     animation: glyphicon-spin-r 2s infinite linear;
@@ -205,7 +274,7 @@ body {
     background: -moz-linear-gradient(bottom, #E81F25, #111) !important;
     background: linear-gradient(bottom, #E81F25, #111) !important;
     background-repeat: no-repeat !important;
-    font-family:Poppins-Regular;
+    font-family: Poppins-Regular;
 }
 
 /* Set padding to keep content from hitting the edges */

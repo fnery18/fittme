@@ -1,4 +1,5 @@
 FITT.ME{
+	- Tela de detalhes do produto
 	- Paginaco listar fornecedor
 	- Fazer cadastro de cliente
 	- fazer listagem de cliente
@@ -22,8 +23,5 @@ git{
 }
 
 Fazendo{
-	- Fazer listagem de produto
-	{
-		Fazer um puta select, pra popular corretamente o ProdutoViewModel, que ira exibir a lista de tamanhos disponiveis para aquele produto por exemplo
-	}
+	Tela de filtro dos produtos
 }
