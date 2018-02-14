@@ -33,7 +33,7 @@
             <div class="form-group">
                 <h1>Disponibilidade</h1>
                 <div class="disponibilidade">
-                    <label for="">Cores</label>
+                    <label for="">Cores:</label>
 
                     @foreach (var item in Model.CoresDisponiveis)
                     {
@@ -41,7 +41,7 @@
                     }
 
 
-                    <label for="">Disponível em estoque: </label>
+                    <label for="">Em Estoque: </label>
                     @if (Model.EmEstoque)
                     {
                         <i style="color:#00E640;" class="glyphicon glyphicon-ok-sign"></i>
@@ -50,7 +50,7 @@
                     {
                         <i style="color: #FF0000;" class="glyphicon glyphicon-remove-sign"></i>
                     }
-                    <label for="">Tamanhos disponíveis: </label>
+                    <label for="">Tamanhos: </label>
                     @foreach (var item in Model.TamanhosDisponiveis)
                     {
                         <font>@item.Nome /</font>
