@@ -12,5 +12,6 @@ namespace Intranet.Fittme.MOD
         public string Nome { get; set; }
         public string CodigoCor { get; set; }
         public string Cor { get; set; }
+        public string Quantidade { get; set; }
     }
 }

@@ -1,5 +1,7 @@
 FITT.ME{
-	- Tela de detalhes do produto
+	- Fazer o botao alterar dados do detalhamento do produto funcionar
+	- Fazer no cadastro de produto buscar o nome de um produto existente (pode ser modal)
+	- Diminuir tamanho dos produtos no listar
 	- Paginaco listar fornecedor
 	- Fazer cadastro de cliente
 	- fazer listagem de cliente

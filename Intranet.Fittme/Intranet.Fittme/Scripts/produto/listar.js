@@ -11,9 +11,22 @@
         });
 
         $('.view_details').click(function () {
-            
+            let codigo = $(this).data("codigo");
+            $.ajax({
+                beforeSend: () => {
+                    habilitaLoading();
+                },
+                type: "GET",
+                data: { "codigoProduto" : codigo },
+                url: "/Intranet/BuscaDetalhesProduto/",
+                success: (html) => {
+                    habilitaDetalhes(html);
+                },
+                complete: () => {
+                    desabilitaLoading();
+                }
+            });
         });
-
 
         $('#btnLimpar').click(function (event) {
             event.preventDefault();
@@ -31,7 +44,11 @@
                 $(this).find("i").removeClass().addClass("glyphicon glyphicon-chevron-down");
             }
         });
-        
-
     });
 });
+
+function habilitaDetalhes(html) {
+    $('#produtos').fadeOut(200);
+    $('#detalhes').html(html);
+    $('#detalhes').fadeIn(200);
+}

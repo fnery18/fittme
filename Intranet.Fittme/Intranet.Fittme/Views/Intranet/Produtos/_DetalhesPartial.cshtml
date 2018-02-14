@@ -1,0 +1,66 @@
+﻿@model Intranet.Fittme.Models.ProdutoViewModel
+
+<div class="col-md-12">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <img class="imgProduto" src="~/Content/Images/Produtos/@Model.NomeArquivo" alt="@Model.Nome" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <h1>Informações</h1>
+                <label for="">Nome: </label>
+                <input type="text" value="@Model.Nome" class="inputFiltro" />
+                <label for="">Fornecedor: </label>
+                <input type="text" value="@Model.Fornecedor" class="inputFiltro" disabled />
+                <label for="">Quantidade: </label>
+                <input type="text" value="@Model.Quantidade" class="inputFiltro" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <h1>Preços</h1>
+                <label for="">Preço de Custo: </label>
+                <input type="text" value="@Math.Round(Model.PrecoCusto,2)" class="inputFiltro" />
+                <label for="">Preço de Venda: </label>
+                <input type="text" value="@Math.Round(Model.PrecoVenda,2)" class="inputFiltro" />
+                <label for="">Preço de Nota: </label>
+                <input type="text" value="@Math.Round(Model.PrecoNota,2)" class="inputFiltro" />
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="form-group">
+                <h1>Disponibilidade</h1>
+                <div class="disponibilidade">
+                    <label for="">Cores</label>
+
+                    @foreach (var item in Model.CoresDisponiveis)
+                    {
+                        <span class="cores" style="background: @item.Cor"></span> @Html.Raw("x")@item.Quantidade
+                    }
+
+
+                    <label for="">Disponível em estoque: </label>
+                    @if (Model.EmEstoque)
+                    {
+                        <i style="color:#00E640;" class="glyphicon glyphicon-ok-sign"></i>
+                    }
+                    else
+                    {
+                        <i style="color: #FF0000;" class="glyphicon glyphicon-remove-sign"></i>
+                    }
+                    <label for="">Tamanhos disponíveis: </label>
+                    @foreach (var item in Model.TamanhosDisponiveis)
+                    {
+                        <font>@item.Nome /</font>
+                    }
+                </div>
+            </div>
+            <div class="col-md-4">
+                <button class="buttonFiltro">Alterar dados</button>
+            </div>
+        </div>
+    </div>
+</div>
+

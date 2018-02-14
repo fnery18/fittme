@@ -8,12 +8,12 @@ namespace Intranet.Fittme.Models
 {
     public class ProdutoViewModel
     {
-        public string Fornecedor { get; set; }
+        public string Fornecedor { get; set; } //ok
 
         public string CodigoProduto { get; set; }
         public string CodigoProdutoFornecedor { get; set; }
 
-        public string Nome { get; set; }
+        public string Nome { get; set; } //ok
 
         public int Quantidade { get; set; }
         public bool EmEstoque { get; set; }
@@ -21,12 +21,12 @@ namespace Intranet.Fittme.Models
         public string Tamanho { get; set; }
         public List<TipoModel> TamanhosDisponiveis { get; set; } // na hora de exibir o produto sozinho
 
-        public string NomeArquivo { get; set; }
-        public decimal PrecoCusto { get; set; }
+        public string NomeArquivo { get; set; }//ok
+        public decimal PrecoCusto { get; set; } //ok
 
-        public decimal PrecoNota { get; set; }
+        public decimal PrecoNota { get; set; } //ok
 
-        public decimal PrecoVenda { get; set; }
+        public decimal PrecoVenda { get; set; } //ok
 
         public string Cor { get; set; }
         public string CorHexadecimal { get; set; }

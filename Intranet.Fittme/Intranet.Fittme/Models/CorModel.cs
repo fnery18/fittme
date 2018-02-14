@@ -12,6 +12,7 @@ namespace Intranet.Fittme.Models
         public string Nome { get; set; }
         public string CodigoCor { get; set; }
         public string Cor { get; set; }
+        public string Quantidade { get; set; }
         public CorModel()
         {
 
@@ -19,6 +20,7 @@ namespace Intranet.Fittme.Models
         public CorModel(CorMOD cor)
         {
             Codigo = cor.Codigo;
+            Quantidade = cor.Quantidade;
             Nome = cor.Nome;
             CodigoCor = cor.CodigoCor;
             Cor = cor.Cor;

@@ -10,6 +10,7 @@ namespace Intranet.Fittme.Models
     {
         public int Codigo { get; set; }
         public string Nome { get; set; }
+        public string Quantidade { get; set; }
         public TipoModel()
         {
 
@@ -17,6 +18,7 @@ namespace Intranet.Fittme.Models
         public TipoModel(TipoMOD tipo)
         {
             Nome = tipo.Nome;
+            Quantidade = tipo.Quantidade;
             Codigo = tipo.Codigo;
         }
     }

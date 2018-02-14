@@ -38,7 +38,11 @@ namespace Intranet.Fittme.Controllers
                                                 .ToList();
             return View("Produtos/Listar", produtos);
         }
-
+        public async Task<ActionResult> BuscaDetalhesProduto(string codigoProduto)
+        {
+            var produto = new ProdutoViewModel((await _intranetBLL.BuscaDetalhesProduto(codigoProduto)));
+            return PartialView("Produtos/_DetalhesPartial", produto);
+        }
         [HttpPost]
         public async Task<JsonResult> CadastraProduto(ProdutoModel model)
         {

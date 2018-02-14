@@ -15,10 +15,11 @@
         color: #34c29e;
     }
 
-    .imgProduto{
-        width: 350px;
-        height: 500px;
-    }
+.imgProduto {
+    width: 350px;
+    height: 500px;
+}
+
 @media (min-width: 768px) {
 
     #produtos {
@@ -262,8 +263,17 @@ div.colors div {
             margin: -1px 0 0 -1px;
         }
 
+.cores {
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    border-radius: 50%;
+    border: 1px solid #E8E9EB;
+    margin-right: 5px;
+}
+
 div.c-blue span {
-    background: #6e8cd5;
+    background: #6E8CD5;
 }
 
 div.genericColor span {

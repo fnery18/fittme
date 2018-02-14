@@ -10,5 +10,6 @@ namespace Intranet.Fittme.MOD
     {
         public int Codigo { get; set; }
         public string Nome { get; set; }
+        public string Quantidade { get; set; }
     }
 }

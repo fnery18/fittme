@@ -44,7 +44,7 @@ namespace Intranet.Fittme.BLL
         public async Task<bool> CadastraProduto(ProdutoMOD produto)
         {
             FormataAtributos(ref produto);
-            
+
             return await _intranetDAL.CadastraProduto(produto) > 0;
         }
 
@@ -61,6 +61,19 @@ namespace Intranet.Fittme.BLL
             var produtos = await _intranetDAL.BuscaProdutos();
 
             return produtos;
+        }
+
+        public async Task<ProdutoViewMOD> BuscaDetalhesProduto(string codigoProduto)
+        {
+            var produto = await _intranetDAL.BuscaDetalhesProduto(codigoProduto);
+
+            if (produto != null)
+            {
+                produto.CoresDisponiveis = await _intranetDAL.BuscaCoresDisponiveis(produto.Nome, produto.Fornecedor);
+                produto.TamanhosDisponiveis = await _intranetDAL.BuscaTamanhosDisponiveis(produto.Nome, produto.Fornecedor);
+            }
+            return produto;
+
         }
         #endregion
 
@@ -108,6 +121,8 @@ namespace Intranet.Fittme.BLL
 
             return nomeArquivo;
         }
+
+
         #endregion
 
     }
