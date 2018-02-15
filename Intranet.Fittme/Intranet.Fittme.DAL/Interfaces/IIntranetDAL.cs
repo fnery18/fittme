@@ -36,6 +36,7 @@ namespace Intranet.Fittme.DAL.Interfaces
         Task<int> CadastraCor(CorMOD cor);
         Task<int> ExcluiCor(int codigo);
         string BuscaCodigoCor(int codigoCor);
+        Task<bool> ExcluiProduto(string codigoProduto);
         #endregion
 
     }

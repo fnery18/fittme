@@ -80,6 +80,25 @@ namespace Intranet.Fittme.Controllers
                 Mensagem = "Erro, campos não preenchidos corretamente."
             });
         }
+
+        [HttpPost]
+        public async Task<JsonResult> ExcluiProduto(string codigoProduto)
+        {
+            bool excluio = await _intranetBLL.ExcluirProduto(codigoProduto);
+
+            if (excluio)
+                return Json(new { Sucesso = true });
+
+            return Json(new { Sucesso = false, Mensagem = "Ocorreu um erro ao excluir o produto" });
+        }
+
+        public async Task<PartialViewResult> RetornaListaProdutos()
+        {
+            var produtos = (await _intranetBLL.BuscaProdutos())
+                                                .Select(c => new ProdutoViewModel(c))
+                                                .ToList();
+            return PartialView("Produtos/_ProdutosPartial", produtos);
+        }
         #endregion
 
         #region Clientes

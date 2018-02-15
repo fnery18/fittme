@@ -205,6 +205,15 @@ namespace Intranet.Fittme.DAL
 
             }
         }
+
+        public async Task<bool> ExcluiProduto(string codigoProduto)
+        {
+            using (var connection = ConnectionFactory.site_fittme())
+            {
+                var query = @"DELETE FROM Produtos WHERE CodigoProduto = @codigoProduto";
+                return (await connection.ExecuteAsync(query, new { codigoProduto })) > 0;
+            }
+        }
         #endregion
 
         #region Configuracoes

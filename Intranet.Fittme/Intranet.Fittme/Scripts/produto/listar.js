@@ -17,7 +17,7 @@
                     habilitaLoading();
                 },
                 type: "GET",
-                data: { "codigoProduto" : codigo },
+                data: { "codigoProduto": codigo },
                 url: "/Intranet/BuscaDetalhesProduto/",
                 success: (html) => {
                     habilitaDetalhes(html);
@@ -34,7 +34,7 @@
         });
 
         $('.tituloFiltro').click(function () {
-            if($(this).data("opcao") == "abrir"){
+            if ($(this).data("opcao") == "abrir") {
                 $('.filtro').fadeIn(500);
                 $(this).data("opcao", "fechar");
                 $(this).find("i").removeClass().addClass("glyphicon glyphicon-chevron-up");
@@ -45,10 +45,71 @@
             }
         });
     });
+
+    $(document).on("click", '#btnVoltar', () => {
+        desabilitaDetalhes();
+    });
+    $(document).on("click", '#btnAlterar', function () {
+        alert($(this).data("codigo"));
+    });
+    $(document).on("click", '#btnExcluir', function () {
+        let codigo = $(this).data("codigo");
+        let nome = $(this).data("nome");
+        $('#modalExcluirProduto').modal();
+        $('#txtProduto').text(nome);
+        $('#txtCodigoProdutoDelete').val(codigo);
+    });
+    $(document).on("click", '#btnExcluirProduto', function () {
+        let codigo = $('#txtCodigoProdutoDelete').val();
+
+        $.ajax({
+            beforeSend: () => {
+                habilitaLoading();
+            },
+            data: { "codigoProduto": codigo },
+            url: "/Intranet/ExcluiProduto/",
+            type: "POST",
+            success: (data) => {
+                if (data.Sucesso) {
+                    MensagemSucesso("Produto excluído com sucesso!");
+                    atualizaProdutos();
+                    desabilitaDetalhes();
+                } else {
+                    MensagemErroPersonalizada(data.Mensagem);
+                }
+            },
+            complete: () => {
+                desabilitaLoading();
+                $('#modalExcluirProduto').modal('toggle');
+            }
+        });
+    });
 });
 
 function habilitaDetalhes(html) {
     $('#produtos').fadeOut(200);
     $('#detalhes').html(html);
     $('#detalhes').fadeIn(200);
+}
+function desabilitaDetalhes() {
+    $('#detalhes').fadeOut(200);
+    $('#produtos').fadeIn();
+    $('#detalhes').html("");
+}
+
+function atualizaProdutos() {
+    $.ajax({
+        beforeSend: () => {
+            habilitaLoading();
+        },
+        type: "GET",
+        url: "/Intranet/RetornaListaProdutos/",
+        success: (html) => {
+            $('#partialProdutos').html("");
+            $('#partialProdutos').html(html);
+        },
+        complete: () => {
+            desabilitaLoading();
+        }
+    });
 }

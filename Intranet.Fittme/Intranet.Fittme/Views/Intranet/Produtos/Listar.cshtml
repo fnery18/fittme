@@ -13,40 +13,40 @@
 
 <div id="detalhes"></div>
 
+<br />
+
 <div id="produtos">
     @Html.Partial("Produtos/_FiltroProdutosPartial")
-    @foreach (var item in Model)
-    {
-        <div id="make-3D-space">
-            <div class="product-card">
-                <div id="product-front">
-                    <div class="shadow"></div>
-                    <img class="imgProduto" src="~/Content/Images/Produtos/@item.NomeArquivo" alt="" />
-                    <div class="image_overlay"></div>
-                    <div class="view_details" data-codigo="@item.CodigoProduto">Ver Detalhes</div>
-                    <div class="stats">
-                        <div class="stats-container">
-                            <span class="product_price">@Math.Round(item.PrecoVenda,2)</span>
-                            <span class="product_name">@item.Nome</span>
-                            <p>@item.CodigoProduto</p>
-
-                            <div class="product-options">
-                                <strong>TAMANHO</strong>
-                                <span>@item.Tamanho</span>
-                                <strong>COR</strong>
-                                <div class="colors">
-                                    <div class="genericColor"><span style="background: @item.CorHexadecimal"></span></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    }
+    <div id="partialProdutos">
+        @Html.Partial("Produtos/_ProdutosPartial", Model);
+    </div>
+    
 </div>
 
+@* MODAL EXCLUIR PRODUTO *@
+<div class="modal fade" id="modalExcluirProduto" tabindex="-1" role="dialog" aria-labelledby="modalExcluirLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <p class="modal-title" id="modalExcluir">
+                    Excluir Produto
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </p>
 
+            </div>
+            <div class="modal-body">
+                Você tem certeza que deseja excluir o produto <font id="txtProduto"></font>?
+                <input type="hidden" id="txtCodigoProdutoDelete" value="" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+                <button type="button" id="btnExcluirProduto" class="btn btn-danger">Excluir</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 @section scripts{

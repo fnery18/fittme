@@ -189,6 +189,7 @@
     <Content Include="Views\Intranet\Config\_TabelaTiposPartial.cshtml" />
     <Content Include="Views\Intranet\Produtos\_FiltroProdutosPartial.cshtml" />
     <Content Include="Views\Intranet\Produtos\_DetalhesPartial.cshtml" />
+    <Content Include="Views\Intranet\Produtos\_ProdutosPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

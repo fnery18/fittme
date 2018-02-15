@@ -32,6 +32,7 @@ namespace Intranet.Fittme.BLL.Interfaces
         Task<bool> CadastraProduto(ProdutoMOD produto);
         Task<List<ProdutoViewMOD>> BuscaProdutos();
         Task<ProdutoViewMOD> BuscaDetalhesProduto(string codigoProduto);
+        Task<bool> ExcluirProduto(string codigoProduto);
         #endregion
     }
 }

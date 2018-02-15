@@ -75,6 +75,11 @@ namespace Intranet.Fittme.BLL
             return produto;
 
         }
+
+        public async Task<bool> ExcluirProduto(string codigoProduto)
+        {
+            return await _intranetDAL.ExcluiProduto(codigoProduto);
+        }
         #endregion
 
         #region Configuracoes
