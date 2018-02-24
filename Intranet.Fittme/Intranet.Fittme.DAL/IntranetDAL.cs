@@ -1,11 +1,9 @@
-﻿using Intranet.Fittme.DAL.Interfaces;
+﻿using Dapper;
+using Intranet.Fittme.DAL.Interfaces;
 using Intranet.Fittme.MOD;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using Dapper;
 
 namespace Intranet.Fittme.DAL
 {
@@ -212,6 +210,22 @@ namespace Intranet.Fittme.DAL
             {
                 var query = @"DELETE FROM Produtos WHERE CodigoProduto = @codigoProduto";
                 return (await connection.ExecuteAsync(query, new { codigoProduto })) > 0;
+            }
+        }
+
+        public async Task<bool> AlteraProduto(ProdutoViewMOD produto)
+        {
+            using (var connection = ConnectionFactory.site_fittme())
+            {
+                var query = @"
+                                UPDATE 
+	                                Produtos 
+                                SET 
+	                                Nome = @Nome, PrecoCusto = @PrecoCusto, PrecoNota = @PrecoNota, PrecoVenda = @PrecoVenda 
+                                WHERE 
+	                                CodigoProduto = @CodigoProduto";
+
+                return (await connection.ExecuteAsync(query, produto)) > 0;
             }
         }
         #endregion

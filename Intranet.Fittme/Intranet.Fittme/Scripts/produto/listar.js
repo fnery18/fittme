@@ -1,16 +1,16 @@
 ﻿$(() => {
     $(document).ready(function () {
 
-        // Lift card and show stats on Mouseover
-        $('.product-card').hover(function () {
+        $(document).on('mouseenter', '.product-card', function () {
             $(this).addClass('animate');
             $('div.carouselNext, div.carouselPrev').addClass('visible');
-        }, function () {
+        });
+        $(document).on('mouseleave', '.product-card', function () {
             $(this).removeClass('animate');
             $('div.carouselNext, div.carouselPrev').removeClass('visible');
         });
 
-        $('.view_details').click(function () {
+        $(document).on('click','.view_details', function () {
             let codigo = $(this).data("codigo");
             $.ajax({
                 beforeSend: () => {
@@ -28,12 +28,12 @@
             });
         });
 
-        $('#btnLimpar').click(function (event) {
+        $(document).on('click', '#btnLimpar', function (event) {
             event.preventDefault();
             $('#btnReset').trigger('click');
         });
 
-        $('.tituloFiltro').click(function () {
+        $(document).on('click', '.tituloFiltro', function () {
             if ($(this).data("opcao") == "abrir") {
                 $('.filtro').fadeIn(500);
                 $(this).data("opcao", "fechar");
@@ -50,7 +50,33 @@
         desabilitaDetalhes();
     });
     $(document).on("click", '#btnAlterar', function () {
-        alert($(this).data("codigo"));
+        var produto = {
+            CodigoProduto: $(this).data("codigo"),
+            Nome: $('#txtNome').val(),
+            PrecoVenda: $('#txtVenda').val(),
+            PrecoCusto: $('#txtCusto').val(),
+            PrecoNota: $('#txtNota').val()
+        }
+        
+        $.ajax({
+            beforeSend: () => {
+                habilitaLoading();
+            },
+            type: "POST",
+            url: "/Intranet/AlteraProduto/",
+            data: { "model" : produto },
+            success: (data) => {
+                if(data.Sucesso){
+                    MensagemSucesso("Produto atualizado com sucesso!");
+                    atualizaProdutos();
+                } else {
+                    MensagemErroPersonalizada(data.Mensagem);
+                }
+            },
+            complete: () => {
+                desabilitaLoading();
+            }
+        });
     });
     $(document).on("click", '#btnExcluir', function () {
         let codigo = $(this).data("codigo");

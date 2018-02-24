@@ -130,7 +130,7 @@ div.product-card.flip180 {
 }
 
 .stats-container {
-    background: #fff;
+    background: #444; /*E81F25*/
     position: absolute;
     top: 370px;
     left: 0;
@@ -153,7 +153,7 @@ div.product-card.flip180 {
 
 .stats-container .product_name {
     font-size: 22px;
-    color: #393c45;
+    color: #E8E9EB;
 }
 
 .stats-container p {
@@ -193,7 +193,7 @@ div.product-card.flip180 {
 
     .product-options strong {
         font-weight: 700;
-        color: #393c45;
+        color: #E8E9EB;
         font-size: 14px;
     }
 

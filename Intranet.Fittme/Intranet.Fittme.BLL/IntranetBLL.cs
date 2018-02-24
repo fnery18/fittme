@@ -1,13 +1,11 @@
 ﻿using Intranet.Fittme.BLL.Interfaces;
 using Intranet.Fittme.DAL.Interfaces;
+using Intranet.Fittme.MOD;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Intranet.Fittme.MOD;
-using System.Web;
 using System.IO;
+using System.Threading.Tasks;
+using System.Web;
 using System.Web.Hosting;
 
 namespace Intranet.Fittme.BLL
@@ -79,6 +77,11 @@ namespace Intranet.Fittme.BLL
         public async Task<bool> ExcluirProduto(string codigoProduto)
         {
             return await _intranetDAL.ExcluiProduto(codigoProduto);
+        }
+
+        public async Task<bool> AlteraProduto(ProdutoViewMOD produto)
+        {
+            return await _intranetDAL.AlteraProduto(produto);
         }
         #endregion
 

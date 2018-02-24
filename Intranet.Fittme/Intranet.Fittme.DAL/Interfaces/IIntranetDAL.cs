@@ -1,8 +1,5 @@
 ﻿using Intranet.Fittme.MOD;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Intranet.Fittme.DAL.Interfaces
@@ -37,6 +34,7 @@ namespace Intranet.Fittme.DAL.Interfaces
         Task<int> ExcluiCor(int codigo);
         string BuscaCodigoCor(int codigoCor);
         Task<bool> ExcluiProduto(string codigoProduto);
+        Task<bool> AlteraProduto(ProdutoViewMOD produto);
         #endregion
 
     }

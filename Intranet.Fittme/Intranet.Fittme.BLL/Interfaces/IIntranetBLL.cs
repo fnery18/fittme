@@ -1,9 +1,6 @@
-﻿using System;
+﻿using Intranet.Fittme.MOD;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using Intranet.Fittme.MOD;
 
 namespace Intranet.Fittme.BLL.Interfaces
 {
@@ -33,6 +30,7 @@ namespace Intranet.Fittme.BLL.Interfaces
         Task<List<ProdutoViewMOD>> BuscaProdutos();
         Task<ProdutoViewMOD> BuscaDetalhesProduto(string codigoProduto);
         Task<bool> ExcluirProduto(string codigoProduto);
+        Task<bool> AlteraProduto(ProdutoViewMOD produto);
         #endregion
     }
 }

@@ -1,11 +1,8 @@
 ﻿using Intranet.Fittme.BLL.Interfaces;
 using Intranet.Fittme.MOD;
 using Intranet.Fittme.Models;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
 
 namespace Intranet.Fittme.Controllers
@@ -98,6 +95,30 @@ namespace Intranet.Fittme.Controllers
                                                 .Select(c => new ProdutoViewModel(c))
                                                 .ToList();
             return PartialView("Produtos/_ProdutosPartial", produtos);
+        }
+
+        [HttpPost]
+        public async Task<JsonResult> AlteraProduto(ProdutoViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var produto = new ProdutoViewMOD()
+                {
+                    CodigoProduto = model.CodigoProduto,
+                    Nome = model.Nome,
+                    PrecoCusto = model.PrecoCusto,
+                    PrecoVenda = model.PrecoVenda,
+                    PrecoNota = model.PrecoNota
+                };
+
+                bool alterou = await _intranetBLL.AlteraProduto(produto);
+
+                if (alterou)
+                    return Json(new { Sucesso = true });
+                return Json(new { Sucesso = false, Mensagem = "Ops! Ocorreu um erro ao alterar o produto." });
+            }
+
+            return Json(new { Sucesso = false, Mensagem = "Erro, Campos não preenchidos corretamente." });
         }
         #endregion
 

@@ -11,22 +11,22 @@
             <div class="form-group">
                 <h1>Informações</h1>
                 <label for="">Nome: </label>
-                <input type="text" value="@Model.Nome" class="inputFiltro" />
+                <input type="text" id="txtNome" value="@Model.Nome" class="inputFiltro" />
                 <label for="">Fornecedor: </label>
                 <input type="text" value="@Model.Fornecedor" class="inputFiltro" disabled />
                 <label for="">Quantidade: </label>
-                <input type="text" value="@Model.Quantidade" class="inputFiltro" />
+                <input type="text" value="@Model.Quantidade" class="inputFiltro" disabled />
             </div>
         </div>
         <div class="col-md-4">
             <div class="form-group">
                 <h1>Preços</h1>
                 <label for="">Preço de Custo: </label>
-                <input type="text" value="@Math.Round(Model.PrecoCusto,2)" class="inputFiltro" />
+                <input type="text" id="txtCusto" value="@Math.Round(Model.PrecoCusto,2)" class="inputFiltro" />
                 <label for="">Preço de Venda: </label>
-                <input type="text" value="@Math.Round(Model.PrecoVenda,2)" class="inputFiltro" />
+                <input type="text" id="txtVenda" value="@Math.Round(Model.PrecoVenda,2)" class="inputFiltro" />
                 <label for="">Preço de Nota: </label>
-                <input type="text" value="@Math.Round(Model.PrecoNota,2)" class="inputFiltro" />
+                <input type="text" id="txtNota" value="@Math.Round(Model.PrecoNota,2)" class="inputFiltro" />
             </div>
         </div>
         <div class="col-md-8">
@@ -57,12 +57,12 @@
                     }
                 </div>
             </div>
-            <div class="col-md-8">
-                <div class="form-group">
-                    <button class="buttonFiltro" id="btnVoltar"><i class="glyphicon glyphicon-arrow-left"></i> Voltar</button>
-                    <button class="buttonFiltro" data-codigo="@Model.CodigoProduto" id="btnAlterar">Alterar dados <i class="glyphicon glyphicon-edit"></i></button>
-                    <button class="buttonFiltro" data-codigo="@Model.CodigoProduto" data-nome="@Model.Nome" id="btnExcluir">Excluir <i class="glyphicon glyphicon-trash"></i></button>
-                </div>
+        </div>
+        <div class="col-md-8">
+            <div class="form-group">
+                <button class="buttonFiltro" id="btnVoltar"><i class="glyphicon glyphicon-arrow-left"></i> Voltar</button>
+                <button class="buttonFiltro" data-codigo="@Model.CodigoProduto" id="btnAlterar">Alterar dados <i class="glyphicon glyphicon-edit"></i></button>
+                <button class="buttonFiltro" data-codigo="@Model.CodigoProduto" data-nome="@Model.Nome" id="btnExcluir">Excluir <i class="glyphicon glyphicon-trash"></i></button>
             </div>
         </div>
     </div>
