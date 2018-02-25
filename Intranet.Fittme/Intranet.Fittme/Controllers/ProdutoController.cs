@@ -1,5 +1,7 @@
 ﻿using Intranet.Fittme.BLL.Interfaces;
+using Intranet.Fittme.MOD;
 using Intranet.Fittme.Models;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
@@ -9,11 +11,14 @@ namespace Intranet.Fittme.Controllers
     public class ProdutoController : Controller
     {
         private IProdutoBLL _produtoBLL;
+        private IIntranetBLL _intranetBLL;
 
-        public ProdutoController(IProdutoBLL produtoBLL)
+        public ProdutoController(IProdutoBLL produtoBLL, IIntranetBLL intranetBLL)
         {
             _produtoBLL = produtoBLL;
+            _intranetBLL = intranetBLL;
         }
+
         #region VENDAS
         public ActionResult Vender()
         {
@@ -24,8 +29,6 @@ namespace Intranet.Fittme.Controllers
         {
             return View();
         }
-        #endregion
-        #region Produto
         [HttpGet]
         public async Task<JsonResult> BuscaProduto(string codigoProduto, int quantidadeTotal, int quantidadeEscolhida)
         {
@@ -56,6 +59,106 @@ namespace Intranet.Fittme.Controllers
         public PartialViewResult GeraDivProduto(ProdutoViewModel produto)
         {
             return PartialView("Venda/_ProdutoPartial", produto);
+        }
+        #endregion
+
+        #region PRODUTOS
+        public async Task<ActionResult> Cadastrar()
+        {
+            PropriedadesModel model = new PropriedadesModel((await _intranetBLL.BuscaPropriedades()));
+            return View("Produtos/Cadastrar", model);
+        }
+        public async Task<ActionResult> Listar()
+        {
+            var produtos = (await _produtoBLL.BuscaProdutos())
+                                                .Select(c => new ProdutoViewModel(c))
+                                                .ToList();
+            return View("Produtos/Listar", produtos);
+        }
+        public async Task<ActionResult> BuscaDetalhesProduto(string codigoProduto)
+        {
+            var produto = new ProdutoViewModel((await _produtoBLL.BuscaDetalhesProduto(codigoProduto)));
+            return PartialView("Produtos/_DetalhesPartial", produto);
+        }
+        [HttpPost]
+        public async Task<JsonResult> CadastraProduto(ProdutoModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                if (model.Imagem.ContentType.Contains("image"))
+                {
+                    ProdutoMOD produto = new ProdutoMOD()
+                    {
+                        CodigoFornecedor = model.CodigoFornecedor,
+                        CodigoProdutoFornecedor = model.CodigoProdutoFornecedor,
+                        CodigoProduto = model.CodigoProduto,
+                        Imagem = model.Imagem,
+                        Quantidade = model.Quantidade,
+                        CodigoTipo = model.CodigoTipo,
+                        Nome = model.Nome,
+                        PrecoCusto = model.PrecoCusto,
+                        PrecoNota = model.PrecoNota,
+                        PrecoVenda = model.PrecoVenda,
+                        CodigoCor = model.CodigoCor
+                    };
+
+                    var cadastrou = await _produtoBLL.CadastraProduto(produto);
+
+                    if (cadastrou)
+                        return Json(new { Sucesso = true });
+                    else
+                        return Json(new { Sucesso = false, Mensagem = "Ops, ocorreu um erro ao cadastrar" });
+                }
+            }
+
+            return Json(new
+            {
+                Sucesso = false,
+                Mensagem = "Erro, campos não preenchidos corretamente."
+            });
+        }
+
+        [HttpPost]
+        public async Task<JsonResult> ExcluiProduto(string codigoProduto)
+        {
+            bool excluio = await _produtoBLL.ExcluirProduto(codigoProduto);
+
+            if (excluio)
+                return Json(new { Sucesso = true });
+
+            return Json(new { Sucesso = false, Mensagem = "Ocorreu um erro ao excluir o produto" });
+        }
+
+        public async Task<PartialViewResult> RetornaListaProdutos()
+        {
+            var produtos = (await _produtoBLL.BuscaProdutos())
+                                                .Select(c => new ProdutoViewModel(c))
+                                                .ToList();
+            return PartialView("Produtos/_ProdutosPartial", produtos);
+        }
+
+        [HttpPost]
+        public async Task<JsonResult> AlteraProduto(ProdutoViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var produto = new ProdutoViewMOD()
+                {
+                    CodigoProduto = model.CodigoProduto,
+                    Nome = model.Nome,
+                    PrecoCusto = model.PrecoCusto,
+                    PrecoVenda = model.PrecoVenda,
+                    PrecoNota = model.PrecoNota
+                };
+
+                bool alterou = await _produtoBLL.AlteraProduto(produto);
+
+                if (alterou)
+                    return Json(new { Sucesso = true });
+                return Json(new { Sucesso = false, Mensagem = "Ops! Ocorreu um erro ao alterar o produto." });
+            }
+
+            return Json(new { Sucesso = false, Mensagem = "Erro, Campos não preenchidos corretamente." });
         }
         #endregion
 

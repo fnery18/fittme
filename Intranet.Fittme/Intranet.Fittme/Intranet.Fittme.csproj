@@ -174,8 +174,8 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Autenticacao\Index.cshtml" />
     <Content Include="Views\Intranet\Index.cshtml" />
-    <Content Include="Views\Intranet\Produtos\Cadastrar.cshtml" />
-    <Content Include="Views\Intranet\Produtos\Listar.cshtml" />
+    <Content Include="Views\Produto\Produtos\Cadastrar.cshtml" />
+    <Content Include="Views\Produto\Produtos\Listar.cshtml" />
     <Content Include="Views\Intranet\Fornecedores\Cadastrar.cshtml" />
     <Content Include="Views\Intranet\Fornecedores\Listar.cshtml" />
     <Content Include="Views\Intranet\Clientes\Cadastrar.cshtml" />
@@ -190,9 +190,9 @@
     <Content Include="Views\Intranet\Config\Configuracoes.cshtml" />
     <Content Include="Views\Intranet\Config\_TabelaCoresPartial.cshtml" />
     <Content Include="Views\Intranet\Config\_TabelaTiposPartial.cshtml" />
-    <Content Include="Views\Intranet\Produtos\_FiltroProdutosPartial.cshtml" />
-    <Content Include="Views\Intranet\Produtos\_DetalhesPartial.cshtml" />
-    <Content Include="Views\Intranet\Produtos\_ProdutosPartial.cshtml" />
+    <Content Include="Views\Produto\Produtos\_FiltroProdutosPartial.cshtml" />
+    <Content Include="Views\Produto\Produtos\_DetalhesPartial.cshtml" />
+    <Content Include="Views\Produto\Produtos\_ProdutosPartial.cshtml" />
     <Content Include="Views\Produto\Venda\Vender.cshtml" />
     <Content Include="Views\Produto\Venda\_ProdutoPartial.cshtml" />
     <None Include="Web.Debug.config">
@@ -205,7 +205,6 @@
   <ItemGroup>
     <Folder Include="App_Code\" />
     <Folder Include="Content\Images\Produtos\" />
-    <Folder Include="Views\Produto\Produto\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Intranet.Fittme.BLL\Intranet.Fittme.BLL.csproj">

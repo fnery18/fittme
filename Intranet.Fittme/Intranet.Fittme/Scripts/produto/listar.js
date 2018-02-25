@@ -18,7 +18,7 @@
                 },
                 type: "GET",
                 data: { "codigoProduto": codigo },
-                url: "/Intranet/BuscaDetalhesProduto/",
+                url: "/Produto/BuscaDetalhesProduto/",
                 success: (html) => {
                     habilitaDetalhes(html);
                 },
@@ -55,7 +55,7 @@
                 habilitaLoading();
             },
             type: "POST",
-            url: "/Intranet/AlteraProduto/",
+            url: "/Produto/AlteraProduto/",
             data: { "model" : produto },
             success: (data) => {
                 if(data.Sucesso){
@@ -85,7 +85,7 @@
                 habilitaLoading();
             },
             data: { "codigoProduto": codigo },
-            url: "/Intranet/ExcluiProduto/",
+            url: "/Produto/ExcluiProduto/",
             type: "POST",
             success: (data) => {
                 if (data.Sucesso) {
@@ -121,7 +121,7 @@ function atualizaProdutos() {
             habilitaLoading();
         },
         type: "GET",
-        url: "/Intranet/RetornaListaProdutos/",
+        url: "/Produto/RetornaListaProdutos/",
         success: (html) => {
             $('#partialProdutos').html("");
             $('#partialProdutos').html(html);

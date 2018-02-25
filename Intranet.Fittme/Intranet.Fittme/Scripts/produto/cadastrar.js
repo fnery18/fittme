@@ -17,7 +17,7 @@ $(() => {
             form.append('PrecoVenda', $('#txtPrecoVenda').val());
 
             $.ajax({
-                url: '/Intranet/CadastraProduto/', // Url do lado server que vai receber o arquivo
+                url: '/Produto/CadastraProduto/', // Url do lado server que vai receber o arquivo
                 data: form,
                 processData: false,
                 contentType: false,
