@@ -131,6 +131,7 @@
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Scripts\alert.js" />
     <Content Include="Scripts\autenticacao.js" />
+    <Content Include="Scripts\cliente\cadastrar.js" />
     <Content Include="Scripts\configuracoes\propriedades.js" />
     <Content Include="Scripts\fornecedor\cadastrar.js" />
     <Content Include="Scripts\fornecedor\listar.js" />
@@ -143,6 +144,7 @@
     <Content Include="Scripts\produto\listar.js" />
     <Content Include="Scripts\produto\vendas\vender.js" />
     <Content Include="Scripts\util\animacoes.js" />
+    <Content Include="Scripts\util\validaPessoa.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -158,6 +160,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AutenticacaoModel.cs" />
+    <Compile Include="Models\Cliente\ClienteModel.cs" />
     <Compile Include="Models\CorModel.cs" />
     <Compile Include="Models\FornecedorModel.cs" />
     <Compile Include="Models\ProdutoModel.cs" />
@@ -165,6 +168,7 @@
     <Compile Include="Models\PropriedadesModel.cs" />
     <Compile Include="Models\SessionCheck.cs" />
     <Compile Include="Models\TipoModel.cs" />
+    <Compile Include="Models\Venda\VendaModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

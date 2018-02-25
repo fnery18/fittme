@@ -24,5 +24,9 @@ namespace Intranet.Fittme.BLL.Interfaces
         Task<bool> CadastraCor(CorMOD cor);
         Task<bool> ExcluiCor(CorMOD cor);
         #endregion
+
+        #region CLIENTE
+        Task<bool> CadastraCliente(ClienteMOD cliente);
+        #endregion
     }
 }

@@ -1,6 +1,9 @@
 ﻿using Intranet.Fittme.BLL.Interfaces;
 using Intranet.Fittme.MOD;
+using Intranet.Fittme.MOD.Venda;
 using Intranet.Fittme.Models;
+using Intranet.Fittme.Models.Venda;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
@@ -20,11 +23,12 @@ namespace Intranet.Fittme.Controllers
         }
 
         #region VENDAS
+        [HttpGet]
         public ActionResult Vender()
         {
             return View("Venda/Vender");
         }
-
+        [HttpGet]
         public ActionResult RelatorioVendas()
         {
             return View();
@@ -60,6 +64,26 @@ namespace Intranet.Fittme.Controllers
         {
             return PartialView("Venda/_ProdutoPartial", produto);
         }
+
+        [HttpPost]
+        public async Task<JsonResult> FinalizaVenda(List<VendaModel> model)
+        {
+            if (ModelState.IsValid)
+            {
+                var produtos = model.Select(c => new VendaMOD()
+                {
+                    CodigoProduto = c.CodigoProduto,
+                    QuantidadeEscolhida = c.QuantidadeEscolhida
+                }).ToList();
+
+                bool vendeu = await _produtoBLL.VendeProdutos(produtos);
+                if (vendeu)
+                    return Json(new { Sucesso = true });
+                return Json(new { Sucesso = false, Mensagem = "Ops! Ocorreu um erro ao vender." });
+            }
+            return Json(new { Sucesso = false, Mensagem = RetornaErro(ModelState) });
+        }
+
         #endregion
 
         #region PRODUTOS
@@ -159,6 +183,15 @@ namespace Intranet.Fittme.Controllers
             }
 
             return Json(new { Sucesso = false, Mensagem = "Erro, Campos não preenchidos corretamente." });
+        }
+        #endregion
+
+        #region FUNÇÕES
+        private string RetornaErro(ModelStateDictionary model)
+        {
+            return ModelState.Select(x => x.Value.Errors)
+                          .FirstOrDefault(y => y.Count > 0)
+                          .Select(z => z.ErrorMessage).FirstOrDefault();
         }
         #endregion
 

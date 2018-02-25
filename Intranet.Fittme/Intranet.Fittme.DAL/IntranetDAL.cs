@@ -214,5 +214,31 @@ namespace Intranet.Fittme.DAL
         }
 
         #endregion
+
+        #region CLIENTE
+        public async Task<bool> CadastraCliente(ClienteMOD cliente)
+        {
+            using (var connection = ConnectionFactory.site_fittme())
+            {
+                using (var transation = connection.BeginTransaction())
+                {
+                    var query = @"
+                                INSERT INTO 
+                                    Clientes 
+                                VALUES(
+                                    @Nome, @Email, @Celular
+                                )";
+
+                    var linhasInseridas = await connection.ExecuteAsync(query, cliente, transation);
+
+                    if (linhasInseridas > 0)
+                        transation.Commit();
+
+                    return linhasInseridas > 0;
+                }
+            }
+        }
+
+        #endregion
     }
 }

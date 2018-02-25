@@ -1,6 +1,7 @@
 ﻿using Intranet.Fittme.BLL.Interfaces;
 using Intranet.Fittme.DAL.Interfaces;
 using Intranet.Fittme.MOD;
+using Intranet.Fittme.MOD.Venda;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -31,6 +32,10 @@ namespace Intranet.Fittme.BLL
                 return produto;
             }
             return null;
+        }
+        public async Task<bool> VendeProdutos(List<VendaMOD> produtos)
+        {
+            throw new NotImplementedException();
         }
         #endregion
 
@@ -91,8 +96,6 @@ namespace Intranet.Fittme.BLL
 
             return nomeArquivo;
         }
-
-
         #endregion
     }
 }

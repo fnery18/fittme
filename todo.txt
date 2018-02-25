@@ -1,12 +1,11 @@
 FITT.ME{
-	- Fazer o submit da venda.
+	- Fazer o submit da venda. (preciso saber primeiro como vai ser a tabela)
+	- Colocar autocomplete no codigo fittme na tela de vender
 	- Paginaco listar fornecedor
-	- Fazer cadastro de cliente
 	- fazer listagem de cliente
 	- fazer listagem de venda
 	- Adicionar email no usuario
 	- fazer cadastro de usuario
-	- Migrar tudo de produto para o controller produto (altera as urls, e no menu)
 	- fazer listagem de usuario
 	- fazer adicionar filtros nas listagem
 	- fazer filtros funcionarem
@@ -24,6 +23,31 @@ DUVIDAS{
 	- Como ira funcionar a compra de um produto ja existente? exemplo, comprei 3  regata `x` branca. cadastrei no sistema e vendi as 3.
 	depois de uns dias comprei + 5 dessa regata `x`. Para atualizar no sistema quer como? no listar produto procurar essa regata, clicar
 	em alterar e somar na quantidade +5?
+	////
+	Sobre a tabela de venda
+	pensei nesses campos olhando o excel, precisa ser 100% igual o excel, menos que esses ou mais?
+	Codigo
+	CodigoProduto
+	Quantidade
+	DataHoraVenda
+	PrecoVenda
+	PrecoTotal
+	Transacao_ID
+	CodigoCliente
+	FormaPagamento
+	TipoTransacao
+	Status
+	Desconto
+	Taxa
+	ValorLiquido
+	DataHoraCompesacao
+	Parcelas
+	SerialLeitor
+	TaxaIntermediacao
+	TaxaParcelamento
+	TarifaBoleto
+	BandeiraCartao
+
 }
 
 git{
@@ -31,5 +55,5 @@ git{
 }
 
 Fazendo{
-
+	- Fazer cadastro de cliente
 }

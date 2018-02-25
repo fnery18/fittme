@@ -6,6 +6,14 @@ CREATE TABLE Fornecedores(
 	PRIMARY KEY (Codigo)
 )
 
+CREATE TABLE Clientes(
+	Codigo int identity,
+	Nome varchar(100) NOT NULL,
+	Email varchar(100),
+	Celular varchar(15),
+	PRIMARY KEY (Codigo)
+)
+
 CREATE TABLE Tipos(
 	Codigo int identity,
 	Nome varchar(3)

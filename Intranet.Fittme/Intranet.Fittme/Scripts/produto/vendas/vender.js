@@ -1,8 +1,45 @@
 ﻿$(() => {
-    let codigo = $('#txtCodigo');
-    let quantidade = $('#txtQuantidade');
+    var codigo = $('#txtCodigo');
+    var quantidade = $('#txtQuantidade');
 
     //FUNCOES
+    var FinalizaVenda = function () {
+        let codigos = $('[data-xcodigo]');
+        let produtos = [];
+
+        for (var i = 0; i < codigos.length; i++) {
+            let produto = {
+                "CodigoProduto": codigos[i].getAttribute("data-xcodigo"),
+                "QuantidadeEscolhida": codigos[i].getAttribute("data-xquantidade")
+            }
+            produtos.push(produto);
+        }
+
+        if (produtos.length > 0) {
+            $.ajax({
+                beforeSend: () => {
+                    habilitaLoading()
+                },
+                type: "POST",
+                url: "/Produto/FinalizaVenda",
+                data: { "model": produtos },
+                success: (data) => {
+                    if (data.Sucesso) {
+                        MensagemSucesso();
+                    } else {
+                        MensagemErroPersonalizada(data.Mensagem);
+                    }
+                },
+                complete: () => {
+                    desabilitaLoading();
+                }
+            });
+        } else {
+            MensagemErroPersonalizada("Por favor adicione produtos para a venda.");
+            codigo.focus();
+        }
+    }
+
     var ativarTooltip = function () {
         $('[data-toggle="tooltip"]').tooltip();
     }
@@ -91,5 +128,10 @@
                 }
             });
         }
+    });
+
+    $(document).on("click", "#btnVender", function (event) {
+        event.preventDefault();
+        FinalizaVenda();
     });
 });

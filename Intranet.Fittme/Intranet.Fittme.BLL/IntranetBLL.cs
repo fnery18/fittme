@@ -66,5 +66,12 @@ namespace Intranet.Fittme.BLL
             return await _intranetDAL.ExcluiTipo(tipo.Codigo) > 0;
         }
         #endregion
+
+        #region CLIENTE
+        public async Task<bool> CadastraCliente(ClienteMOD cliente)
+        {
+            return await _intranetDAL.CadastraCliente(cliente);
+        }
+        #endregion
     }
 }

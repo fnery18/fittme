@@ -31,6 +31,27 @@ namespace Intranet.Fittme.Controllers
         {
             return View("Clientes/Listar");
         }
+        [HttpPost]
+        public async Task<ActionResult> CadastraCliente(ClienteModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var cliente = new ClienteMOD
+                {
+                    Nome = model.Nome,
+                    Celular = model.Celular,
+                    Email = model.Email
+                };
+
+                bool cadastrou = await _intranetBLL.CadastraCliente(cliente);
+
+                if (cadastrou)
+                    return Json(new { Sucesso = true });
+
+                return Json(new { Sucesso = false, Mensagem = "Ops, ocorreu um erro ao cadastrar esse cliente" });
+            }
+            return Json(new { Sucesso = false, Mensagem = RetornaErro(ModelState) });
+        }
         #endregion
 
         #region Vendas
@@ -69,7 +90,7 @@ namespace Intranet.Fittme.Controllers
 
                 return Json(new { Sucesso = false, Mensagem = "Ops, ocorreu um erro ao cadastrar esse fornecedor" });
             }
-            return Json(new { Sucesso = false, Mensagem = "Ops, campos não preenchidos corretamente" });
+            return Json(new { Sucesso = false, Mensagem = RetornaErro(ModelState) });
         }
         public ActionResult Fornecedores()
         {
@@ -105,7 +126,7 @@ namespace Intranet.Fittme.Controllers
 
                 return Json(new { Sucesso = false, Mensagem = "Ops, ocorreu um erro ao alterar esse fornecedor" });
             }
-            return Json(new { Sucesso = false, Mensagem = "Ops, campos não preenchidos corretamente" });
+            return Json(new { Sucesso = false, Mensagem = RetornaErro(ModelState) });
         }
 
         [HttpPost]
@@ -264,5 +285,13 @@ namespace Intranet.Fittme.Controllers
         }
         #endregion
 
+        #region FUNÇÕES
+        private string RetornaErro(ModelStateDictionary model)
+        {
+            return ModelState.Select(x => x.Value.Errors)
+                          .FirstOrDefault(y => y.Count > 0)
+                          .Select(z => z.ErrorMessage).FirstOrDefault();
+        }
+        #endregion
     }
 }
