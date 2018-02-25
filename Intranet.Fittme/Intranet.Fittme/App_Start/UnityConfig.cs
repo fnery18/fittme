@@ -53,6 +53,9 @@ namespace Intranet.Fittme
             container.RegisterType<IIntranetBLL, IntranetBLL>();
             container.RegisterType<IIntranetDAL, IntranetDAL>();
 
+            container.RegisterType<IProdutoBLL, ProdutoBLL>();
+            container.RegisterType<IProdutoDAL, ProdutoDAL>();
+
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
     }

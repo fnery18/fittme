@@ -1,11 +1,10 @@
 ﻿function esconderAlerts() {
     setTimeout(function () {
         $(".alert").fadeOut("slow")
-    }, 5e3)
+    }, 5000)
 }
 
 function mostrarMensagem(n, t, i, r) {
-    console.log(t);
     $("#alert-helper").html("<div style='display:none;' class='alert alert-" + r + " alert-dismissable erro-dashboard' style='z-index:9999999999;'><i class='fa fa-" + i + "'><\/i><button aria-hidden='true' data-dismiss='alert' class='close' type='button'>×<\/button>" + n + "<\/div>");
     $("#alert-helper .alert").fadeIn("slow");
     esconderAlerts()

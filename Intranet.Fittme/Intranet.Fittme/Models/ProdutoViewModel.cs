@@ -1,8 +1,6 @@
 ﻿using Intranet.Fittme.MOD;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
 namespace Intranet.Fittme.Models
 {
@@ -16,6 +14,7 @@ namespace Intranet.Fittme.Models
         public string Nome { get; set; } //ok
 
         public int Quantidade { get; set; }
+        public int QuantidadeEscolhida { get; set; }
         public bool EmEstoque { get; set; }
 
         public string Tamanho { get; set; }
@@ -32,7 +31,7 @@ namespace Intranet.Fittme.Models
         public string CorHexadecimal { get; set; }
         public List<CorModel> CoresDisponiveis { get; set; }
 
-        public ProdutoViewModel(){}
+        public ProdutoViewModel() { }
 
         public ProdutoViewModel(ProdutoViewMOD produto)
         {

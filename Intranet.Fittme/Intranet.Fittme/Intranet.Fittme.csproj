@@ -120,6 +120,7 @@
     <Content Include="Content\produto\card.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\tabela\table.css" />
+    <Content Include="Content\venda\vender.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="fonts\material-design-iconic-font.min.css" />
     <Content Include="Global.asax" />
@@ -140,6 +141,7 @@
     <Content Include="Scripts\jquery.mask.js" />
     <Content Include="Scripts\produto\cadastrar.js" />
     <Content Include="Scripts\produto\listar.js" />
+    <Content Include="Scripts\produto\vendas\vender.js" />
     <Content Include="Scripts\util\animacoes.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -151,6 +153,7 @@
     <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="Controllers\AutenticacaoController.cs" />
     <Compile Include="Controllers\IntranetController.cs" />
+    <Compile Include="Controllers\ProdutoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -190,6 +193,8 @@
     <Content Include="Views\Intranet\Produtos\_FiltroProdutosPartial.cshtml" />
     <Content Include="Views\Intranet\Produtos\_DetalhesPartial.cshtml" />
     <Content Include="Views\Intranet\Produtos\_ProdutosPartial.cshtml" />
+    <Content Include="Views\Produto\Venda\Vender.cshtml" />
+    <Content Include="Views\Produto\Venda\_ProdutoPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -198,7 +203,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Code\" />
     <Folder Include="Content\Images\Produtos\" />
+    <Folder Include="Views\Produto\Produto\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Intranet.Fittme.BLL\Intranet.Fittme.BLL.csproj">

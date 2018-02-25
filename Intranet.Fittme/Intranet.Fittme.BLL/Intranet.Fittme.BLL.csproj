@@ -44,7 +44,9 @@
     <Compile Include="AutenticacaoBLL.cs" />
     <Compile Include="Interfaces\IAutenticacaoBLL.cs" />
     <Compile Include="Interfaces\IIntranetBLL.cs" />
+    <Compile Include="Interfaces\IProdutoBLL.cs" />
     <Compile Include="IntranetBLL.cs" />
+    <Compile Include="ProdutoBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

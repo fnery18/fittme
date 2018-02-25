@@ -1,0 +1,57 @@
+﻿.iconAdicionar{
+    font-size: 20px;
+    padding: 15px;
+    text-align: left;
+    color: #0094ff;
+}
+
+.clicavel{
+    cursor: pointer;
+    transition: all .2s ease-in;
+}
+
+.clicavel:hover{
+    transform: scale(1.2);
+}
+
+.titulo-produto{
+    font-size: 20px;
+    color: #2C3E50;
+    width:100%;
+    padding: 15px;
+    margin-bottom:20px;
+}
+
+.conteudo-produto{
+    display: none;
+    color: #2C3E50;
+    background-color: #ECF0F1;
+    margin-top: -20px;
+}
+
+.slide-out-left{-webkit-animation:slide-out-left .5s cubic-bezier(.55,.085,.68,.53) both;animation:slide-out-left .5s cubic-bezier(.55,.085,.68,.53) both}
+
+@-webkit-keyframes slide-out-left {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateX(-1000px);
+            transform: translateX(-1000px);
+    opacity: 0;
+  }
+}
+@keyframes slide-out-left {
+  0% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateX(-1000px);
+            transform: translateX(-1000px);
+    opacity: 0;
+  }
+}

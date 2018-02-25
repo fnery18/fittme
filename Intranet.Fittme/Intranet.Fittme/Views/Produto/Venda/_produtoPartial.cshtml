@@ -1,0 +1,30 @@
+﻿@model Intranet.Fittme.Models.ProdutoViewModel
+
+
+@{ 
+    Random rng = new Random();
+    int id = rng.Next(1, 1000);
+    decimal total = Model.QuantidadeEscolhida * Model.PrecoVenda;
+}
+<div class="col-sm-12 titulo-produto" style="background-color: @Model.Cor">
+        <i id="removeProduto" class="clicavel pull-right glyphicon glyphicon-remove-circle" 
+           style="color: #E81F25" data-toggle="tooltip" data-placement="bottom" 
+           title="" data-original-title="Remover">
+        </i>
+        <font data-id="@Model.CodigoProduto@id" data-opcao="abrir">
+            @Model.Nome @Html.Raw("x")@Model.QuantidadeEscolhida - R$ @total
+            <i class="glyphicon clicavel glyphicon-chevron-down" 
+               data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Abrir">
+            </i>
+        </font>
+</div>
+
+ <div class="col-sm-12 conteudo-produto" id="@Model.CodigoProduto@id">
+     <input data-xcodigo="@Model.CodigoProduto" data-xquantidade="@Model.QuantidadeEscolhida" type="hidden" />
+     <p>Fornecedor: @Model.Fornecedor</p>
+     <p>Tamanho: @Model.Tamanho</p>
+     <p>Preço: @Model.PrecoVenda</p>
+     <p>Quantidade em estoque: @Model.Quantidade</p>
+     <p>Valor total do produto: @total</p>
+ </div>
+

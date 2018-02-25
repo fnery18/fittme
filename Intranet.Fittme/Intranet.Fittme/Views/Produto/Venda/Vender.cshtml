@@ -1,0 +1,51 @@
+﻿@{
+    ViewBag.Title = "Vender";
+    ViewBag.TituloPagina = "VENDER";
+    ViewBag.SubTituloPagina = "Lançamento de vendas";
+}
+@section styles{
+    <link href="~/Content/form.css" rel="stylesheet" />
+    <link href="~/Content/venda/vender.css" rel="stylesheet" />
+}
+
+<section class="contact-wrap">
+    <form action="" class="contact-form" enctype="multipart/form-data">
+        <div class="col-sm-6">
+            <div class="input-block">
+                <label for=""><i class="glyphicon glyphicon-barcode"></i> Codigo FITTME</label>
+                <input type="text" id="txtCodigo" maxlength="20" required class="form-control">
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="input-block">
+                <label for=""><i class="glyphicon glyphicon-asterisk"></i> Quantidade</label>
+                <input type="text" id="txtQuantidade" maxlength="3" class="form-control">
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="iconAdicionar">
+                <i id="btnAdicionar" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Adicionar produto" 
+                   class="glyphicon glyphicon-plus clicavel"></i>
+            </div>
+        </div>
+
+        <div class="col-sm-12">
+            <div id="partialProdutos">
+                @*@Html.Partial("Venda/_ProdutoPartial")*@
+            </div>
+        </div>
+
+
+        <div class="col-sm-12" style="margin-bottom: 10px;">
+            <button class="square-button" id="btnVender"><font>Vender</font></button>
+        </div>
+        <input type="reset" id="btnLimparCampos" style="display: none;" />
+    </form>    
+</section>
+
+@section scripts{
+    <script src="~/Scripts/form.js"></script>
+    <script src="~/Scripts/produto/vendas/vender.js"></script>
+}
+
+
