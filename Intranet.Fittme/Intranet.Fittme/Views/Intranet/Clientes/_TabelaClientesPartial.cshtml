@@ -1,14 +1,14 @@
-﻿@model List<Intranet.Fittme.Models.FornecedorModel>
+﻿@model List<Intranet.Fittme.Models.ClienteModel>
 <div class="limiter">
     <div class="container-table100">
         <div class="wrap-table100">
             <div class="table">
                 <div class="row header">
                     <div class="cell">
-                        E-mail
+                        Nome
                     </div>
                     <div class="cell">
-                        Nome
+                        E-mail
                     </div>
                     <div class="cell">
                         Celular
@@ -20,18 +20,25 @@
                 @foreach (var item in Model)
                 {
                     <div class="row">
-                        <div class="cell" data-title="Email">
-                            @item.Email
-                        </div>
                         <div class="cell" data-title="Nome">
                             @item.Nome
+                        </div>
+                        <div class="cell" data-title="Email">
+                            @item.Email
                         </div>
                         <div class="cell" data-title="Celular">
                             @item.Celular
                         </div>
                         <div class="cell" data-title="Opcao">
-                            <a data-opcao="editar" data-cel="@item.Celular" data-email="@item.Email" data-nome="@item.Nome" data-codigo="@item.Codigo" data-toggle="tooltip" data-placement="bottom" title="Editar"><i class="glyphicon glyphicon-edit"></i></a>&nbsp;
-                            <a data-opcao="excluir" data-nome="@item.Nome" data-toggle="tooltip" data-codigo="@item.Codigo" data-placement="bottom" title="Excluir"><i class="glyphicon glyphicon-trash"></i></a>
+                            <a data-opcao="editar" data-cel="@item.Celular"
+                               data-email="@item.Email" data-nome="@item.Nome" data-codigo="@item.Codigo"
+                               data-toggle="tooltip" data-placement="bottom" title="Editar">
+                                <i class="glyphicon glyphicon-edit"></i>
+                            </a>&nbsp;
+                            <a data-opcao="excluir" data-nome="@item.Nome" data-toggle="tooltip"
+                               data-codigo="@item.Codigo" data-placement="bottom" title="Excluir">
+                                <i class="glyphicon glyphicon-trash"></i>
+                            </a>
                         </div>
                     </div>
                 }

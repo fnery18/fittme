@@ -3,7 +3,7 @@ var modalExcluir = $(`#modalExcluir`);
 
 $(function () {
     $(document).ready(function () {
-        BuscaFornecedores();
+        BuscaClientes();
         $('[data-toggle="tooltip"]').tooltip();
     });
 
@@ -11,7 +11,7 @@ $(function () {
         let nome = ($(this).data("nome"));
         let codigo = $(this).data("codigo");
         $('#txtCodigo').val(codigo);
-        $('#txtFornecedor').text(nome);
+        $('#txtCliente').text(nome);
         modalExcluir.modal();
     });
 
@@ -24,16 +24,16 @@ $(function () {
     });
 
     $(document).on("click", "#btnSalvar", function () {
-        if(validaForm(true, true, true)){
-            $.post("/Intranet/AlteraFornecedor/", {
+        if (validaForm(true, false, false)) {
+            $.post("/Intranet/AlteraCliente/", {
                 "Nome": $("#txtNome").val(),
                 "Email": $("#txtEmail").val(),
                 "Celular": $("#txtCelular").val(),
                 "Codigo": $("#txtCodigo").val()
             }, function (retorno) {
                 if (retorno.Sucesso) {
-                    MensagemSucesso("Fornecedor alterado com sucesso!");
-                    BuscaFornecedores();
+                    MensagemSucesso("Cliente alterado com sucesso!");
+                    BuscaClientes();
                     limpaCampos();
                 } else {
                     MensagemErroPersonalizada(retorno.Mensagem);
@@ -41,16 +41,16 @@ $(function () {
                 modalEditar.modal("toggle");
             });
         }
-        
+
     });
 
     $(document).on("click", "#btnExcluir", function () {
-        $.post("/Intranet/ExcluiFornecedor/", {
+        $.post("/Intranet/ExcluiCliente/", {
             "Codigo": $("#txtCodigo").val(),
         }, function (retorno) {
             if (retorno.Sucesso) {
-                MensagemSucesso("Fornecedor excluido com sucesso!");
-                BuscaFornecedores();
+                MensagemSucesso("Cliente excluido com sucesso!");
+                BuscaCliente();
             } else {
                 MensagemErroPersonalizada(retorno.Mensagem);
             }
@@ -59,10 +59,9 @@ $(function () {
     });
 });
 
-function BuscaFornecedores() {
-    $.get("/Intranet/TabelaFornecedores/", {}, (html) =>
-    {
-        $("#partialFornecedores").html(html);
+function BuscaClientes() {
+    $.get("/Intranet/TabelaClientes/", {}, (html) => {
+        $("#partialClientes").html(html);
         $('[data-toggle="tooltip"]').tooltip();
     })
 }

@@ -132,6 +132,7 @@
     <Content Include="Scripts\alert.js" />
     <Content Include="Scripts\autenticacao.js" />
     <Content Include="Scripts\cliente\cadastrar.js" />
+    <Content Include="Scripts\cliente\listar.js" />
     <Content Include="Scripts\configuracoes\propriedades.js" />
     <Content Include="Scripts\fornecedor\cadastrar.js" />
     <Content Include="Scripts\fornecedor\listar.js" />
@@ -199,6 +200,7 @@
     <Content Include="Views\Produto\Produtos\_ProdutosPartial.cshtml" />
     <Content Include="Views\Produto\Venda\Vender.cshtml" />
     <Content Include="Views\Produto\Venda\_ProdutoPartial.cshtml" />
+    <Content Include="Views\Intranet\Clientes\_TabelaClientesPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

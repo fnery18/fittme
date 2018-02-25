@@ -1,8 +1,7 @@
 FITT.ME{
-	- Fazer o submit da venda. (preciso saber primeiro como vai ser a tabela)
+	- Fazer o submit da venda. (preciso saber primeiro como vai ser a tabela, adicionar cliente e campos necessarios apos saber a tabela.)
 	- Colocar autocomplete no codigo fittme na tela de vender
 	- Paginaco listar fornecedor
-	- fazer listagem de cliente
 	- fazer listagem de venda
 	- Adicionar email no usuario
 	- fazer cadastro de usuario
@@ -55,5 +54,5 @@ git{
 }
 
 Fazendo{
-	- Fazer cadastro de cliente
+
 }

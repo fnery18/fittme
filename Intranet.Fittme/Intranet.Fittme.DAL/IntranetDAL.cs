@@ -15,7 +15,7 @@ namespace Intranet.Fittme.DAL
         //}
 
         #region FORNECEDOR
-        public async Task<int> CadastraFornecedor(FornecedorMOD fornecedor)
+        public async Task<bool> CadastraFornecedor(FornecedorMOD fornecedor)
         {
             using (var connection = ConnectionFactory.site_fittme())
             {
@@ -25,20 +25,15 @@ namespace Intranet.Fittme.DAL
                                 INSERT INTO 
                                     Fornecedores 
                                 VALUES(
-                                    @NOME, @EMAIL, @CELULAR
+                                    @Nome, @Email, @Celular
                                 )";
 
-                    var linhasInseridas = await connection.ExecuteAsync(query, new
-                    {
-                        NOME = fornecedor.Nome,
-                        EMAIL = fornecedor.Email,
-                        CELULAR = fornecedor.Celular
-                    }, transation);
+                    var linhasInseridas = await connection.ExecuteAsync(query, fornecedor, transation);
 
-                    if (linhasInseridas > 0)
+                    if (linhasInseridas == 1)
                         transation.Commit();
 
-                    return linhasInseridas;
+                    return linhasInseridas == 1;
                 }
             }
         }
@@ -55,32 +50,48 @@ namespace Intranet.Fittme.DAL
                 return (await conncetion.QueryAsync<FornecedorMOD>(query)).ToList();
             }
         }
-        public async Task<int> AlteraFornecedor(FornecedorMOD fornecedor)
+        public async Task<bool> AlteraFornecedor(FornecedorMOD fornecedor)
         {
             using (var connection = ConnectionFactory.site_fittme())
             {
-                var query = @"
+                using (var transaction = connection.BeginTransaction())
+                {
+                    var query = @"
                             UPDATE 
                                 Fornecedores 
                             SET 
                                 Nome = @Nome, Email = @Email, Celular = @Celular
                             WHERE
                                 Codigo = @Codigo";
-                return await connection.ExecuteAsync(query, new
-                {
-                    Nome = fornecedor.Nome,
-                    Email = fornecedor.Email,
-                    Celular = fornecedor.Celular,
-                    Codigo = fornecedor.Codigo
-                });
+
+                    if (await connection.ExecuteAsync(query, fornecedor, transaction) == 1)
+                    {
+                        transaction.Commit();
+                        return true;
+                    }
+                    return false;
+                }
             }
         }
-        public async Task<int> ExcluiFornecedor(int codigo)
+        public async Task<bool> ExcluiFornecedor(int codigo)
         {
             using (var connection = ConnectionFactory.site_fittme())
             {
-                var query = @"DELETE FROM Fornecedores WHERE Codigo = @codigo";
-                return await connection.ExecuteAsync(query, new { codigo });
+                using (var transaction = connection.BeginTransaction())
+                {
+                    var query = @"
+                                DELETE FROM 
+                                    Fornecedores 
+                                WHERE 
+                                    Codigo = @codigo";
+
+                    if (await connection.ExecuteAsync(query, new { codigo }, transaction) == 1)
+                    {
+                        transaction.Commit();
+                        return true;
+                    }
+                    return false;
+                }
             }
         }
         #endregion
@@ -231,11 +242,72 @@ namespace Intranet.Fittme.DAL
 
                     var linhasInseridas = await connection.ExecuteAsync(query, cliente, transation);
 
-                    if (linhasInseridas > 0)
+                    if (linhasInseridas == 1)
                         transation.Commit();
 
-                    return linhasInseridas > 0;
+                    return linhasInseridas == 1;
                 }
+            }
+        }
+
+        public async Task<bool> AlteraCliente(ClienteMOD cliente)
+        {
+            using (var connection = ConnectionFactory.site_fittme())
+            {
+                using (var transaction = connection.BeginTransaction())
+                {
+                    var query = @"
+                            UPDATE 
+                                Clientes 
+                            SET 
+                                Nome = @Nome, Email = @Email, Celular = @Celular
+                            WHERE
+                                Codigo = @Codigo";
+
+                    if (await connection.ExecuteAsync(query, cliente, transaction) == 1)
+                    {
+                        transaction.Commit();
+                        return true;
+                    }
+                    return false;
+                }
+            }
+        }
+
+        public async Task<List<ClienteMOD>> BuscaClientes()
+        {
+            using (var conncetion = ConnectionFactory.site_fittme())
+            {
+                var query = @"
+                            SELECT 
+                                * 
+                            FROM 
+                                Clientes";
+
+                return (await conncetion.QueryAsync<ClienteMOD>(query)).ToList();
+            }
+        }
+
+        public async Task<bool> ExcluiCliente(int codigo)
+        {
+            using (var connection = ConnectionFactory.site_fittme())
+            {
+                using (var transaction = connection.BeginTransaction())
+                {
+                    var query = @"
+                                DELETE FROM 
+                                    Clientes 
+                                WHERE 
+                                    Codigo = @codigo";
+
+                    if (await connection.ExecuteAsync(query, new { codigo }, transaction) == 1)
+                    {
+                        transaction.Commit();
+                        return true;
+                    }
+                    return false;
+                }
+
             }
         }
 

@@ -52,6 +52,43 @@ namespace Intranet.Fittme.Controllers
             }
             return Json(new { Sucesso = false, Mensagem = RetornaErro(ModelState) });
         }
+        [HttpGet]
+        public async Task<ActionResult> TabelaClientes()
+        {
+            var model = (await _intranetBLL.BuscaClientes())
+                                              .Select(c => new ClienteModel(c))
+                                                  .ToList();
+
+            return Request.IsAjaxRequest()
+                ? (ActionResult)PartialView("Clientes/_TabelaClientesPartial", model)
+                : View("Clientes/Listar");
+        }
+        [HttpPost]
+        public async Task<JsonResult> AlteraCliente(ClienteModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var cliente = new ClienteMOD
+                {
+                    Codigo = model.Codigo,
+                    Nome = model.Nome,
+                    Celular = model.Celular,
+                    Email = model.Email
+                };
+                bool alterou = await _intranetBLL.AlteraCliente(cliente);
+                if (alterou)
+                    return Json(new { Sucesso = true });
+
+                return Json(new { Sucesso = false, Mensagem = "Ops, ocorreu um erro ao alterar esse cliente" });
+            }
+            return Json(new { Sucesso = false, Mensagem = RetornaErro(ModelState) });
+        }
+
+        [HttpPost]
+        public async Task<JsonResult> ExcluiCliente(int codigo)
+        {
+            return Json(new { Sucesso = await _intranetBLL.ExcluiCliente(codigo) });
+        }
         #endregion
 
         #region Vendas

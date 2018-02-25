@@ -27,6 +27,9 @@ namespace Intranet.Fittme.BLL.Interfaces
 
         #region CLIENTE
         Task<bool> CadastraCliente(ClienteMOD cliente);
+        Task<bool> ExcluiCliente(int codigo);
+        Task<List<ClienteMOD>> BuscaClientes();
+        Task<bool> AlteraCliente(ClienteMOD cliente);
         #endregion
     }
 }

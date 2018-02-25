@@ -17,11 +17,11 @@ namespace Intranet.Fittme.BLL
         #region FORNECEDOR
         public async Task<bool> CadastraFornecedor(FornecedorMOD fornecedor)
         {
-            return await _intranetDAL.CadastraFornecedor(fornecedor) > 0;
+            return await _intranetDAL.CadastraFornecedor(fornecedor);
         }
         public async Task<bool> AlteraFornecedor(FornecedorMOD fornecedor)
         {
-            return await _intranetDAL.AlteraFornecedor(fornecedor) > 0;
+            return await _intranetDAL.AlteraFornecedor(fornecedor);
         }
         public async Task<List<FornecedorMOD>> BuscaFornecedores()
         {
@@ -29,7 +29,7 @@ namespace Intranet.Fittme.BLL
         }
         public async Task<bool> ExcluiFornecedor(int codigo)
         {
-            return await _intranetDAL.ExcluiFornecedor(codigo) > 0;
+            return await _intranetDAL.ExcluiFornecedor(codigo);
         }
         #endregion
 
@@ -71,6 +71,21 @@ namespace Intranet.Fittme.BLL
         public async Task<bool> CadastraCliente(ClienteMOD cliente)
         {
             return await _intranetDAL.CadastraCliente(cliente);
+        }
+
+        public async Task<bool> ExcluiCliente(int codigo)
+        {
+            return await _intranetDAL.ExcluiCliente(codigo);
+        }
+
+        public async Task<List<ClienteMOD>> BuscaClientes()
+        {
+            return await _intranetDAL.BuscaClientes();
+        }
+
+        public async Task<bool> AlteraCliente(ClienteMOD cliente)
+        {
+            return await _intranetDAL.AlteraCliente(cliente);
         }
         #endregion
     }

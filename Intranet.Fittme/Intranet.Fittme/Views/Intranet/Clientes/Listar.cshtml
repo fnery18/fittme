@@ -1,13 +1,79 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Listar";
+    ViewBag.TituloPagina = "Clientes FITT.ME";
+    ViewBag.SubTituloPagina = "Listagem de clientes";
 }
+
 @section styles{
-    
+    <link href="~/Content/tabela/table.css" rel="stylesheet" />
 }
-<h2>Listar</h2>
+<div id="partialClientes"></div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalEditar" tabindex="-1" role="dialog" aria-labelledby="modalEditarLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <p class="modal-title" id="modalEditar">
+                    Editar Cliente
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </p>
+            </div>
+            <div class="modal-body">
+                <div class="row2">
+                    <div class="col-md-6">
+                        <label>Nome: </label>
+                        <input type="text" id="txtNome" class="form-control" />
+                    </div>
+                    <div class="col-md-6">
+                        <label>Celular: </label>
+                        <input type="text" id="txtCelular" class="form-control" />
+                    </div>
+                    <div class="col-md-6">
+                        <label>E-mail: </label>
+                        <input type="text" id="txtEmail" class="form-control" />
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                <button type="button" id="btnSalvar" class="btn btn-primary">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalExcluir" tabindex="-1" role="dialog" aria-labelledby="modalExcluirLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <p class="modal-title" id="modalExcluir">
+                    Excluir Cliente
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </p>
+
+            </div>
+            <div class="modal-body">
+                Você tem certeza que deseja excluir o cliente <font id="txtCliente"></font>?
+                <input type="hidden" id="txtCodigo" value="" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Fechar</button>
+                <button type="button" id="btnExcluir" class="btn btn-danger">Excluir</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 @section scripts{
-    
-}
+    <script src="~/Scripts/jquery.mask.js"></script>
+    <script src="~/Scripts/util/validaPessoa.js"></script>
+    <script src="~/Scripts/cliente/listar.js"></script>
 
+}
