@@ -49,7 +49,11 @@
 
     ativarTooltip();
     $(document).on("click", "[data-opcao]", function () {
-        abreFechaFiltro($(this), $(`#${$(this).data("id")}`), 'clicavel');
+        let elementoClicado = $(this);
+        let idElemento = $(this).data("id");
+        let elementoQueAbrira = $(`#${idElemento}`)
+        let classeExtra = 'clicavel';
+        abreFechaFiltro(elementoClicado, elementoQueAbrira, classeExtra);
     });
 
     $(document).on("click", "#removeProduto", function () {
@@ -59,9 +63,6 @@
             el.parent().next().remove(); // conteudo-produto
             el.parent().remove(); // titulo-produto
         }, 600);
-
-
-
     });
 
     $(document).on("click", "#btnAdicionar", function () {
